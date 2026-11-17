@@ -1,0 +1,99 @@
+.trilho {
+  display: flex;
+  flex-direction: column;
+}
+
+.ficha {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: center;
+  gap: var(--gap-secao);
+  padding: 12vh var(--gutter);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.retrato {
+  aspect-ratio: 3 / 4;
+  max-height: 76vh;
+  width: 100%;
+  justify-self: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  background: linear-gradient(170deg, var(--a1), var(--a2));
+  color: var(--bg);
+}
+
+.info :global(.rotulo) {
+  color: var(--a2);
+}
+.info h3 {
+  font-size: var(--titulo-secao);
+  font-style: italic;
+  margin: 0.6rem 0 1.5rem;
+}
+
+.tracos {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+.tracos li {
+  font: 600 0.72rem/1 var(--f-rotulo);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--a2) 60%, transparent);
+}
+
+.momentos {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.momentos a {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 8px 0;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
+}
+.momentos a :global(.rotulo) {
+  color: var(--a1);
+  min-width: 3.5em;
+}
+.momentos a:hover {
+  color: var(--a2);
+}
+
+@media (max-width: 899px) {
+  .ficha {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 14vh;
+  }
+  .retrato {
+    max-height: 60vh;
+    width: auto;
+  }
+}
+
+/* desktop com movimento: classe posta pelo componente */
+.horizontal {
+  overflow: hidden;
+}
+.horizontal .trilho {
+  flex-direction: row;
+  width: max-content;
+}
+.horizontal .ficha {
+  width: 100vw;
+  height: 100vh;
+}

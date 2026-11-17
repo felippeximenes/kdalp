@@ -1,0 +1,27 @@
+.coracao {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 2.5rem;
+  padding: 12vh var(--gutter);
+  background: linear-gradient(180deg, #fde8f1, #e8f0ff);
+  color: var(--madeira);
+  text-align: center;
+}
+
+.svg {
+  width: min(52vw, 280px);
+  overflow: visible;
+}
+.fogo {
+  fill: url(#coracao-fogo);
+  opacity: 0;
+}
+.rosa {
+  fill: #f27bb0;
+}
+
+.frase {
+  font: italic 400 clamp(1.75rem, 4vw, 3rem) / 1.2 var(--f-titulo);
+}

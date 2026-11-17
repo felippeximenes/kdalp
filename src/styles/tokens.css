@@ -1,0 +1,27 @@
+:root {
+  /* cores */
+  --noite: #0a0608;
+  --madeira: #2b1a1c;
+  --marfim: #e8dcc8;
+  --magenta: #e0218a;
+  --sangue: #b3122e;
+  --chama: #ff7a1a;
+  --ouro: #ffc94a;
+  --fumaca: #4b2a6b;
+  --petala: #f7b6c8;
+  --violeta: #8a3ffc;
+  --cromo: #c9ced6;
+  --vermelho-final: #e0102a;
+  --negativo-azul: #3a4bd8;
+  --negativo-rosa: #f2a6e0;
+
+  /* fontes */
+  --f-titulo: 'Bodoni Moda', Didot, Georgia, serif;
+  --f-rotulo: 'Unbounded', system-ui, sans-serif;
+  --f-texto: 'Manrope', system-ui, sans-serif;
+
+  /* espaçamentos */
+  --gutter: clamp(16px, 4vw, 64px);
+  --gap-secao: clamp(24px, 5vw, 96px);
+  --titulo-secao: clamp(3.5rem, 9vw, 9rem);
+}

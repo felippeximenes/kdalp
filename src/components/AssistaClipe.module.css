@@ -1,0 +1,64 @@
+.assista {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 3rem;
+  padding: 14vh var(--gutter);
+  background: radial-gradient(ellipse at 50% 60%, #5a0b33, #1a0610 70%);
+}
+.assista h2 {
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  text-align: center;
+}
+
+.player {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  box-shadow:
+    0 0 0 1px var(--cromo),
+    0 30px 120px rgba(224, 33, 138, 0.35);
+}
+.player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.capa {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(150deg, var(--sangue), var(--magenta) 50%, var(--petala));
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: 600 0.8rem/1 var(--f-rotulo);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--noite);
+  padding: 18px 26px;
+  background: linear-gradient(135deg, #f4f6f9, var(--cromo) 45%, #8e95a0 55%, #f4f6f9);
+  box-shadow: 0 8px 30px rgba(10, 6, 8, 0.35);
+  transition: transform 0.2s;
+}
+.botao svg {
+  width: 18px;
+  fill: var(--magenta);
+}
+.capa:hover .botao {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao {
+    transition: none;
+  }
+}

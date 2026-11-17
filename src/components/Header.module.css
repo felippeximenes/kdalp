@@ -1,0 +1,32 @@
+.topo {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px var(--gutter);
+  mix-blend-mode: difference;
+  color: #fff;
+}
+
+.idioma {
+  display: flex;
+  gap: 4px;
+}
+.idioma button {
+  font: 600 0.72rem/1 var(--f-rotulo);
+  letter-spacing: 0.14em;
+  color: inherit;
+  background: none;
+  border: 1px solid transparent;
+  padding: 8px 10px;
+  min-width: 44px;
+  min-height: 36px;
+  cursor: pointer;
+  opacity: 0.55;
+}
+.idioma button[aria-pressed='true'] {
+  opacity: 1;
+  border-color: currentColor;
+}
