@@ -80,8 +80,8 @@
     padding-top: 14vh;
   }
   .retrato {
-    max-height: 60vh;
-    width: auto;
+    /* 3:4 → largura de 45vh dá altura de 60vh */
+    width: min(100%, 45vh);
   }
 }
 
