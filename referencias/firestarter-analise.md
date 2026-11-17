@@ -2,7 +2,7 @@
 
 > **Fonte:** [K/DA - FIRESTARTER ft. MIYEON e SOYEON (i-dle), Sophie Powers, Mimi Webb](https://www.youtube.com/watch?v=Mmw-PpWhKFg) · League of Legends · 3:26
 > **Método:** engine local do `watch` (91 frames por mudança de cena, 1024px) + legendas oficiais (en). Análise feita a partir dos frames e das legendas. Timestamps marcam o início aproximado de cada momento.
-> **Limites:** os frames são amostras, então o movimento entre eles foi inferido. A identificação das integrantes vem de traços visuais (orelhas de raposa, óculos, chapéu etc.). Onde há dúvida, está marcado *(provável)*. Este documento não diz qual vocalista canta por cada personagem.
+> **Limites:** os frames são amostras, então o movimento entre eles foi inferido. A identificação das integrantes vem de traços visuais (orelhas de raposa, óculos, chapéu etc.). Identificações de 1:37, 2:06 e 2:44 confirmadas pelo autor do projeto. Este documento não diz qual vocalista canta por cada personagem.
 
 ---
 
@@ -19,7 +19,7 @@ O grupo é o K/DA: **Ahri, Akali, Evelynn e Kai'Sa**. Os quatro caixões em 0:10
   - **0:56–1:06:** close entre labaredas, conjurando fogo com as mãos (primeira aparição de poder).
   - **1:06–1:11:** sai caminhando de uma **explosão de chamas em forma de asas/coração**, em plano aberto e simétrico.
   - **1:11–1:12:** transformação em close, com cabelo vermelho e olhar frontal ("Imma start a fire").
-  - **1:36:** close com óculos-visor rosa, abrindo a sequência de retratos.
+  - **1:36–1:37:** closes com óculos-visor rosa, abrindo a sequência de retratos.
   - **2:22:** forma um **coração de fogo** com os braços, que vira o coração rosa em 2:23 (ícone visual central).
   - **3:06:** perfil em close com cabelo preto e verde-água iluminado, no clímax.
 
@@ -32,7 +32,6 @@ O grupo é o K/DA: **Ahri, Akali, Evelynn e Kai'Sa**. Os quatro caixões em 0:10
   - **0:48:** mão com anéis tapando a câmera, em close distorcido.
   - **0:50:** pose no alto do palco entre fumaça roxa ("I can be sweet…").
   - **0:56:** close com óculos roxos e garra cromada ("I'm insane").
-  - **1:37** *(provável)*: retrato com óculos-visor rosa e choker prateado.
 
 ### Akali: a rebelde street
 - **Visual:** **chapéu de pelo preto** com mechas rosa caindo, **óculos-visor espelhado rosa**, lábios brilhantes.
@@ -41,8 +40,6 @@ O grupo é o K/DA: **Ahri, Akali, Evelynn e Kai'Sa**. Os quatro caixões em 0:10
 - **Personalidade:** atitude, rap rápido, energia de rua. Domina o bridge/rap de 1:41–1:53.
 - **Momentos-chave:**
   - **1:38:** retrato frontal com chapéu de pelo e visor, entre faíscas rosa.
-  - **2:06–2:09** *(provável)*: integrante de **franja rosa** e luvas sem dedos fazendo gestos de mão para a câmera, contra fundo magenta e faíscas.
-  - **2:44:** a mesma franja rosa com adorno de antena, em formação de combate com lâminas.
 
 ### Kai'Sa: a força cósmica
 - **Visual:** cabelo loiro/platinado preso, olhos com delineado neon, **pele e roupa que brilham como se fossem feitas de luz**. Na versão "normal", o cabelo loiro tem maquiagem verde-holográfica em lágrima.
@@ -84,18 +81,18 @@ O grupo é o K/DA: **Ahri, Akali, Evelynn e Kai'Sa**. Os quatro caixões em 0:10
 | 17 | 1:31 | **O espectador** | Figura de capuz espelhado atingida por faíscas. |
 | 18 | 1:31 | **Os caixões queimam** | Plano frontal dos **quatro caixões tomados por chamas rosa e vermelhas**: o funeral é incendiado. |
 | 19 | 1:33 | **Reveal do grupo** | Plano médio das quatro lado a lado com óculos-visor, em contraluz branca e rosa. |
-| 20 | 1:36–1:38 | **Galeria de retratos** | Closes frontais em sequência (Ahri, Evelynn, Akali), todos com visores rosa sobre fundo de pétalas e brilho. |
+| 20 | 1:36–1:38 | **Galeria de retratos** | Closes frontais em sequência (Ahri em 1:36 e 1:37, Akali em 1:38), todos com visores rosa sobre fundo de pétalas e brilho. |
 | 21 | 1:39–1:53 | **Cosmos** | Kai'Sa em neon ouro no espaço roxo, mãos de luz e dança com fitas, cobrindo todo o rap/bridge. |
 | 22 | 1:53 | **Rasgo de luz** | Integrante de cabelo rosa preso com speed-lines magentas e uma estrela branca. |
 | 23 | 2:01–2:02 | **Ascensão** | Figura em contra-plongée sobre uma onda de luz rosa ("sit back, relax"). |
-| 24 | 2:06–2:09 | **Selfie de atitude** | Franja rosa fazendo gestos de mão para a câmera entre faíscas douradas e fundo magenta. Depois, silhueta branca contra explosão magenta. |
+| 24 | 2:06–2:09 | **Selfie de atitude** | As quatro juntas fazendo gestos de mão para a câmera entre faíscas douradas e fundo magenta. Depois, silhueta branca contra explosão magenta. |
 | 25 | 2:09–2:13 | **O drop** | Impacto no chão com faíscas brancas "desenhadas à mão" e partículas douradas. Botas de vinil preto caminhando num tapete de glitter rosa, entre garras cromadas que brotam do chão. |
 | 26 | 2:16 | **Queda livre** | Integrante de cabeça para baixo, de camisa branca e vermelha, entre lâminas cromadas e confete laranja. |
 | 27 | 2:18 | **A faísca** | Mão com garras acendendo uma **faísca magenta estelar** no escuro: o "fire starter" literal. |
 | 28 | 2:22–2:23 | **Coração** | Ahri forma um coração de fogo com os braços, que se transforma num **coração rosa flutuante** num céu claro com feixes neon. |
 | 29 | 2:24–2:27 | **Celebração** | Zoom-túnel rosa e lilás. **Plano-assinatura:** as quatro em pose de grupo sob **chuva de confete iridescente** em roupas brancas e vermelhas. |
 | 30 | 2:36–2:38 | **Olhos** | Três macros de olhos com pupila de gato, glitter nas pálpebras e delineado espinhoso, em transição vermelho → violeta. |
-| 31 | 2:42–2:46 | **Batalha de palco** | Coreografia com lâminas e speed-lines violeta. Ahri girando, formação de combate e close borrado de cabelo ruivo. |
+| 31 | 2:42–2:46 | **Batalha de palco** | Coreografia com lâminas e speed-lines violeta. Ahri girando, as quatro em formação de combate e close borrado de cabelo ruivo. |
 | 32 | 2:46 | **Fogos** | As integrantes em silhueta contra uma chuva de fogos de artifício rosa e dourados ("if you can't take the heat…"). |
 | 33 | 2:54 | **Nuvem** | Transição em cristais brancos e azuis. As quatro surgem entre nuvens, em roupas brancas e vermelhas. |
 | 34 | 2:59 | **Véu** | Rosto parcialmente coberto por faixas de tecido e fogo, só a boca visível (respiro antes do final). |
