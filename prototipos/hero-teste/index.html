@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero teste</title>
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #0A0608; color: #f3e9ee; font-family: system-ui, sans-serif; }
+  .hero { position: relative; height: 100vh; overflow: hidden; }
+  .hero video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .flash { position: absolute; inset: 0; background: #E0218A; opacity: 0; pointer-events: none; }
+  .depois { min-height: 100vh; background: #E0218A; display: grid; place-items: center; font-size: 2rem; }
+  .botoes { position: fixed; top: 16px; right: 16px; z-index: 10; display: flex; gap: 8px; }
+  .botoes button { font: inherit; padding: 8px 14px; border: 1px solid #f3e9ee55; background: #0A0608cc; color: inherit; cursor: pointer; }
+  .botoes button[aria-pressed="true"] { background: #E0218A; border-color: #E0218A; }
+  .info { position: fixed; bottom: 16px; left: 16px; z-index: 10; font: 12px monospace; opacity: .7; }
+</style>
+</head>
+<body>
+  <div class="botoes">
+    <button data-src="media/combo-a.mp4" aria-pressed="true">A</button>
+    <button data-src="media/combo-b.mp4">B</button>
+    <button data-src="media/combo-clipe.mp4">Clipe</button>
+  </div>
+  <div class="info"></div>
+
+  <section class="hero">
+    <video src="media/combo-a.mp4" muted playsinline preload="auto"></video>
+    <div class="flash"></div>
+  </section>
+
+  <section class="depois"><p>Próxima seção</p></section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  const video = document.querySelector('.hero video');
+  const flash = document.querySelector('.flash');
+  const info = document.querySelector('.info');
+  let progress = 0;
+
+  function sync() {
+    if (video.duration) video.currentTime = progress * (video.duration - 0.01);
+    flash.style.opacity = Math.max(0, (progress - 0.9) / 0.1);
+    info.textContent = `${(progress * 100).toFixed(1)}%  t=${video.currentTime.toFixed(2)}s`;
+  }
+
+  ScrollTrigger.create({
+    trigger: '.hero',
+    start: 'top top',
+    end: '+=400%',
+    pin: true,
+    scrub: true,
+    onUpdate: (self) => { progress = self.progress; sync(); },
+  });
+
+  video.addEventListener('loadedmetadata', sync);
+
+  document.querySelectorAll('.botoes button').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.botoes button').forEach((b) => b.setAttribute('aria-pressed', b === btn));
+      video.src = btn.dataset.src;
+    });
+  });
+</script>
+</body>
+</html>
