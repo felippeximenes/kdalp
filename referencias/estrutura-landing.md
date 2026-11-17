@@ -168,6 +168,28 @@ A análise não define fontes, então esta é uma proposta para validar. As trê
 
 ---
 
+## Stack
+
+A landing é uma SPA em **Vite + React + TypeScript** (modo `strict`, com `noUncheckedIndexedAccess`), com **ESLint** (typescript-eslint strict + regras de hooks) e **Prettier**. Comandos: `npm run dev`, `npm run build`, `npm run lint`, `npm run format`.
+
+| Camada | Escolha | Onde |
+| --- | --- | --- |
+| Estilos | CSS Modules por componente + tokens globais (cores, fontes, espaçamentos) | `src/components/*.module.css`, `src/styles/tokens.css`, `src/styles/global.css` |
+| Fontes | Bodoni Moda, Unbounded e Manrope pelo Google Fonts | `index.html` |
+| Animação | `gsap` + ScrollTrigger com `useGSAP` (`@gsap/react`), sempre com `scope` no componente, para que animações e gatilhos sejam limpos ao desmontar | cada componente |
+| Scroll suave | `lenis`, ligado ao ScrollTrigger pelo ticker do GSAP | `src/hooks/useLenis.ts` |
+| Movimento reduzido | `useReducedMotion` desliga Lenis, fixação, scrub e entradas animadas. O hero mostra um quadro fixo já em chamas | `src/hooks/useReducedMotion.ts` |
+| Idiomas | `pt.ts` e `en.ts` com o mesmo tipo `Dicionario`, contexto React e seletor PT/EN. Lembra a escolha (localStorage) e segue o navegador na primeira visita | `src/i18n/` |
+| Dados das seções | Personagens e capítulos tipados. Os textos ficam no i18n, os dados fixos (cores, timestamps) ficam aqui | `src/data/` |
+
+**Componentes**, na ordem da página: `Header`, `Hero`, `Manifesto`, `AsQuatro`, `Capitulos`, `Coracao`, `AssistaClipe`, `Rodape`.
+
+**Mídia:** o vídeo do hero fica em `public/media/hero-a.mp4`, fora do git (pastas `media/` no `.gitignore`). Quem clonar o repositório precisa copiá-lo para lá.
+
+GSAP, `@gsap/react` e Lenis vêm do npm, sem CDN. O `prototipos/hero-teste/` continua como HTML estático, isolado da SPA.
+
+---
+
 ## Assets necessários
 
 | Asset | Seção | Origem possível |
