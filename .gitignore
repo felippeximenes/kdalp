@@ -1,3 +1,5 @@
 assets/
 prototipos/hero-teste/media/
 media/
+node_modules/
+dist/
