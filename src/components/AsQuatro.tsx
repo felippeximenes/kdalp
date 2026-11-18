@@ -86,7 +86,7 @@ export function AsQuatro({ reduzido }: { reduzido: boolean }) {
                   nome={`retrato-${p.id}`}
                   formato="retrato"
                   alt={txt.retratoAlt}
-                  sizes="(min-width: 900px) 40vw, 90vw"
+                  sizes="(min-width: 900px) 57vh, 45vh"
                 />
               </div>
               <div className={styles.info}>

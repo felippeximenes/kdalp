@@ -16,8 +16,8 @@
 
 .retrato {
   aspect-ratio: 3 / 4;
-  max-height: 76vh;
-  width: 100%;
+  /* limitar a largura (76vh × 3/4) preserva o 3:4; max-height quebraria a proporção */
+  width: min(100%, 57vh);
   justify-self: center;
   overflow: hidden;
   background: linear-gradient(170deg, var(--a1), var(--a2)); /* enquanto carrega */
