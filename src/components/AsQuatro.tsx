@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { linkClipe, personagens, tempo } from '../data/personagens';
+import { ResponsiveImage } from './ResponsiveImage';
 import styles from './AsQuatro.module.css';
 
 const DESFOQUE = { filter: 'blur(18px)', scale: 1.06, ease: 'none' };
@@ -80,8 +81,13 @@ export function AsQuatro({ reduzido }: { reduzido: boolean }) {
           } as CSSProperties;
           return (
             <article key={p.id} className={styles.ficha} style={cores}>
-              <div className={styles.retrato} role="img" aria-label={t.quatro.retratoAlt}>
-                <span className="rotulo">{p.retrato}</span>
+              <div className={styles.retrato}>
+                <ResponsiveImage
+                  nome={`retrato-${p.id}`}
+                  formato="retrato"
+                  alt={txt.retratoAlt}
+                  sizes="(min-width: 900px) 40vw, 90vw"
+                />
               </div>
               <div className={styles.info}>
                 <p className="rotulo">

@@ -28,6 +28,24 @@
   }
 }
 
+.foto {
+  position: relative;
+  width: min(100%, 900px);
+}
+.foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.foto .negativo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.foto:hover .negativo {
+  opacity: 1;
+}
+
 .aviso {
   font-size: 0.8rem;
   max-width: 70ch;

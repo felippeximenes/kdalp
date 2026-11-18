@@ -8,21 +8,19 @@ export interface Dicionario {
   manifesto: { rotulo: string; texto: string; palavrasChave: string[] };
   quatro: {
     titulo: string;
-    retratoAlt: string;
     personagens: Record<
       PersonagemId,
-      { papel: string; tracos: [string, string, string]; momentos: string[] }
+      { papel: string; tracos: [string, string, string]; momentos: string[]; retratoAlt: string }
     >;
   };
   capitulos: {
     titulo: string;
     navRotulo: string;
-    imagemAlt: string;
-    itens: Record<CapituloId, { titulo: string; texto: string }>;
+    itens: Record<CapituloId, { titulo: string; texto: string; imagemAlt: string }>;
   };
   coracao: { frase: string };
-  assista: { titulo: string; tituloEm: string; botao: string };
-  rodape: { projeto: string; clipeOficial: string };
+  assista: { titulo: string; tituloEm: string; botao: string; capaAlt: string };
+  rodape: { projeto: string; clipeOficial: string; imagemAlt: string };
 }
 
 export const pt: Dicionario = {
@@ -43,62 +41,79 @@ export const pt: Dicionario = {
   },
   quatro: {
     titulo: 'As quatro',
-    retratoAlt: 'Retrato provisório',
     personagens: {
       ahri: {
         papel: 'A incendiária',
         tracos: ['Líder', 'Provocadora', 'Dona do fogo'],
         momentos: ['Asas de fogo', 'A transformação', 'Coração de fogo'],
+        retratoAlt: 'Ahri em close frontal, com visor felino rosa e marcas de bigode no rosto',
       },
       evelynn: {
         papel: 'A diva sombria',
         tracos: ['Fria', 'Sedutora', 'Pose de estrela'],
         momentos: ['Anéis na lente', 'Acima da fumaça', 'Óculos roxos'],
+        retratoAlt: 'Evelynn em close, com óculos roxos e cabelo platinado, sob luz violeta',
       },
       akali: {
         papel: 'A rebelde',
         tracos: ['Atitude', 'Rap rápido', 'Energia de rua'],
         momentos: ['Retrato com visor', 'O bridge'],
+        retratoAlt: 'Akali com chapéu de pelo e visor espelhado rosa, mechas rosa ao vento',
       },
       kaisa: {
         papel: 'A força cósmica',
         tracos: ['Etérea', 'Poderosa', 'Sobrenatural'],
         momentos: ['Dança no cosmos', 'Dunas violeta', 'Mãos na lente'],
+        retratoAlt: "Kai'Sa em close, com visor rosa e choker de anéis prateados",
       },
     },
   },
   capitulos: {
     titulo: 'A história em capítulos',
     navRotulo: 'Capítulos',
-    imagemAlt: 'Imagem provisória',
     itens: {
       velorio: {
         titulo: 'Velório',
         texto:
           'Quatro caixões no alto da escadaria, um mar de velas e uma coroa de lírios. O silêncio antes do fogo.',
+        imagemAlt:
+          'Vista de dentro do caixão: o forro roxo acolchoado e, através do vidro, saltos vermelhos entre as velas',
       },
       ignicao: {
         titulo: 'Ignição',
         texto:
           'O mármore rosa se rasga e ela sai caminhando de uma explosão em forma de asas. O mundo escuro pega fogo.',
+        imagemAlt: 'Ahri caminha no centro de um par de asas de fogo, cercada de chamas',
       },
       cosmos: {
         titulo: 'Cosmos',
         texto:
           'Um corte seco e a paleta inteira muda: ouro incandescente sobre violeta, e a luz vem de dentro dela.',
+        imagemAlt: "Kai'Sa brilha em neon laranja no cosmos violeta, envolta por fitas de energia",
       },
       coroacao: {
         titulo: 'Coroação',
         texto: 'As quatro juntas sob uma chuva de confete iridescente. O enterro virou festa.',
+        imagemAlt: 'As quatro posam juntas sob uma chuva de confete iridescente em tons de rosa',
       },
       fogoFinal: {
         titulo: 'Fogo final',
         texto:
           'Cortes quadro a quadro, tudo em vermelho, e um flash em negativo. Quem não aguenta o calor que saia.',
+        imagemAlt: 'As quatro em close de grupo, tudo em vermelho monocromático',
       },
     },
   },
   coracao: { frase: 'Todo fogo começa com uma faísca.' },
-  assista: { titulo: 'Assista', tituloEm: 'ao clipe', botao: 'Assistir ao clipe' },
-  rodape: { projeto: 'Projeto de fã, gratuito e não comercial.', clipeOficial: 'Clipe oficial' },
+  assista: {
+    titulo: 'Assista',
+    tituloEm: 'ao clipe',
+    botao: 'Assistir ao clipe',
+    capaAlt: 'As quatro saem caminhando de uma explosão rosa, com destroços no ar',
+  },
+  rodape: {
+    projeto: 'Projeto de fã, gratuito e não comercial.',
+    clipeOficial: 'Clipe oficial',
+    imagemAlt: 'As quatro em close de grupo, em vermelho monocromático',
+  },
 };

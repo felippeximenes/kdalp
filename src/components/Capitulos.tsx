@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { capitulos, type CapituloId } from '../data/capitulos';
+import { ResponsiveImage } from './ResponsiveImage';
 import styles from './Capitulos.module.css';
 
 const MEIO_DA_TELA = { rootMargin: '-50% 0px -50% 0px' };
@@ -76,7 +77,7 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
 
       {capitulos.map((c) => {
         const txt = t.capitulos.itens[c.id];
-        const vars = { '--bg': c.bg, '--fg': c.fg, '--img': c.imagem } as CSSProperties;
+        const vars = { '--bg': c.bg, '--fg': c.fg } as CSSProperties;
         return (
           <article key={c.id} id={c.id} className={styles.cap} style={vars}>
             <div className={styles.texto}>
@@ -86,7 +87,12 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
               <h3>{txt.titulo}</h3>
               <p>{txt.texto}</p>
             </div>
-            <div className={styles.imagem} role="img" aria-label={t.capitulos.imagemAlt} />
+            <ResponsiveImage
+              nome={c.imagem}
+              alt={txt.imagemAlt}
+              sizes="(min-width: 900px) 55vw, 100vw"
+              className={styles.imagem}
+            />
           </article>
         );
       })}

@@ -65,8 +65,9 @@
   font-size: 1.125rem;
 }
 .imagem {
-  aspect-ratio: 16 / 10;
-  background: var(--img);
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 @media (max-width: 899px) {

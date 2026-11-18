@@ -6,7 +6,7 @@ export interface Capitulo {
   tempo: string;
   bg: string;
   fg: string;
-  /** placeholder da imagem-chave até as imagens finais */
+  /** nome do arquivo em src/assets/images (sem largura nem extensão) */
   imagem: string;
 }
 
@@ -17,7 +17,7 @@ export const capitulos: Capitulo[] = [
     tempo: '0:00',
     bg: '#0A0608',
     fg: '#E8DCC8',
-    imagem: 'linear-gradient(160deg,#2B1A1C,#C98A9E)',
+    imagem: 'cap1-velorio',
   },
   {
     id: 'ignicao',
@@ -25,7 +25,7 @@ export const capitulos: Capitulo[] = [
     tempo: '1:06',
     bg: '#120A0A',
     fg: '#FFE9D6',
-    imagem: 'linear-gradient(160deg,#120A0A,#FF7A1A 60%,#FFC94A)',
+    imagem: 'cap2-ignicao',
   },
   {
     id: 'cosmos',
@@ -33,7 +33,7 @@ export const capitulos: Capitulo[] = [
     tempo: '1:39',
     bg: '#2A0F5C',
     fg: '#FFF6DA',
-    imagem: 'linear-gradient(160deg,#8A3FFC,#FFD54A)',
+    imagem: 'cap3-cosmos',
   },
   {
     id: 'coroacao',
@@ -41,7 +41,7 @@ export const capitulos: Capitulo[] = [
     tempo: '2:24',
     bg: '#F9C7DD',
     fg: '#2B1A1C',
-    imagem: 'linear-gradient(160deg,#D9219B,#E8F0FF 70%,#E6FF5A)',
+    imagem: 'cap4-coroacao',
   },
   {
     id: 'fogoFinal',
@@ -49,6 +49,6 @@ export const capitulos: Capitulo[] = [
     tempo: '3:05',
     bg: '#E0102A',
     fg: '#FFF1F4',
-    imagem: 'linear-gradient(160deg,#7A0614,#E0102A 55%,#F2A6E0)',
+    imagem: 'cap5-fogo-final',
   },
 ];

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { CLIPE_ID } from '../data/personagens';
 import { CORACAO_PATH } from './Coracao';
+import { ResponsiveImage } from './ResponsiveImage';
 import styles from './AssistaClipe.module.css';
 
 export function AssistaClipe() {
@@ -23,6 +24,12 @@ export function AssistaClipe() {
           />
         ) : (
           <button type="button" className={styles.capa} onClick={() => setCarregado(true)}>
+            <ResponsiveImage
+              nome="capa-clipe"
+              alt={t.assista.capaAlt}
+              sizes="(min-width: 1100px) 1100px, 100vw"
+              className={styles.foto}
+            />
             <span className={styles.botao}>
               <svg viewBox="0 0 100 92" aria-hidden="true">
                 <path d={CORACAO_PATH} />
