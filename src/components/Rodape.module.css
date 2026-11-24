@@ -1,14 +1,15 @@
 .rodape {
   background: var(--vermelho-final);
   color: #fff1f4;
-  padding: 18vh var(--gutter) 6vh;
+  padding: var(--e4) var(--gutter) var(--e2);
   display: grid;
-  gap: 1.5rem;
+  gap: var(--e2);
+  font-size: 1rem;
 }
 
 .titulo {
-  font: italic 400 clamp(3.5rem, 15vw, 14rem) / 0.95 var(--f-titulo);
-  letter-spacing: -0.01em;
+  font: 800 clamp(3rem, 10vw, 8rem) / 0.9 var(--f-display);
+  text-transform: uppercase;
   justify-self: start;
   cursor: default;
 }
@@ -30,7 +31,7 @@
 
 .foto {
   position: relative;
-  width: min(100%, 900px);
+  width: min(100%, 560px);
 }
 .foto img {
   display: block;

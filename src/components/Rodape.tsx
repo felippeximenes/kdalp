@@ -12,13 +12,13 @@ export function Rodape() {
         <ResponsiveImage
           nome="cap5-fogo-final"
           alt={t.rodape.imagemAlt}
-          sizes="(min-width: 960px) 900px, 100vw"
+          sizes="(min-width: 600px) 560px, 100vw"
         />
         {/* 3:08.94: o mesmo quadro em negativo, aparece no hover */}
         <ResponsiveImage
           nome="rodape-negativo"
           alt=""
-          sizes="(min-width: 960px) 900px, 100vw"
+          sizes="(min-width: 600px) 560px, 100vw"
           className={styles.negativo}
         />
       </div>

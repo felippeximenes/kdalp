@@ -17,7 +17,8 @@ html.lenis body {
 body {
   background: var(--noite);
   color: var(--marfim);
-  font: 400 1.0625rem/1.6 var(--f-texto);
+  font: 400 clamp(1.25rem, 1.1rem + 0.4vw, 1.375rem) / 1.5 var(--f-texto); /* 20–22 px */
+  letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -44,21 +45,70 @@ a {
 h1,
 h2,
 h3 {
-  font-family: var(--f-titulo);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.01em;
+  font-family: var(--f-display);
+  font-weight: 800;
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0;
 }
-h1 em,
-h2 em {
-  font-style: italic;
+/* frase de impacto dentro de um título */
+h1 em {
+  font: italic 400 1em/1 var(--f-impacto);
+  text-transform: none;
 }
 
 /* utilitários compartilhados */
+/* sobretítulo: pequeno, caixa-alta, espaçado */
 .rotulo {
-  font: 600 0.72rem/1.3 var(--f-rotulo);
-  letter-spacing: 0.18em;
+  font: 800 0.8rem/1.3 var(--f-texto);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+}
+.rotulo + h2,
+.rotulo + h3 {
+  margin-top: var(--e1);
+}
+.impacto {
+  font: italic 400 clamp(1.75rem, 3.4vw, 3rem) / 1.15 var(--f-impacto);
+}
+/* cabeçalho de seção: sobretítulo + título */
+.cabecalho {
+  width: min(var(--coluna), 100% - 2 * var(--gutter));
+  margin: 0 auto var(--e4);
+}
+.cabecalho h2 {
+  font-size: var(--titulo-secao);
+}
+.pilula {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--petala);
+  color: var(--noite);
+  font: 800 0.8rem/1 var(--f-texto);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: var(--glow);
+  transition:
+    box-shadow 0.2s,
+    translate 0.2s,
+    scale 0.2s;
+}
+.pilula:hover {
+  box-shadow: var(--glow-forte);
+  translate: 0 -2px; /* translate, não transform: o GSAP anima transform */
+}
+@media (prefers-reduced-motion: reduce) {
+  .pilula {
+    transition: none;
+  }
+  .pilula:hover {
+    translate: none;
+  }
 }
 .sr-only {
   position: absolute;

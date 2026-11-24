@@ -68,6 +68,7 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
       <div className={styles.flash} aria-hidden="true" />
       <p className={`rotulo ${styles.rotulo}`}>{t.hero.rotulo}</p>
       <div className={styles.titulo}>
+        <p className="rotulo">Firestarter</p>
         <h1>
           {t.hero.titulo} <em>{t.hero.tituloEm}</em>
         </h1>

@@ -3,8 +3,8 @@
   display: grid;
   place-content: center;
   justify-items: center;
-  gap: 2.5rem;
-  padding: 12vh var(--gutter);
+  gap: var(--e3);
+  padding: var(--e5) var(--gutter);
   background: linear-gradient(180deg, #fde8f1, #e8f0ff);
   color: var(--madeira);
   text-align: center;
@@ -23,5 +23,5 @@
 }
 
 .frase {
-  font: italic 400 clamp(1.75rem, 4vw, 3rem) / 1.2 var(--f-titulo);
+  font: italic 400 clamp(1.75rem, 4vw, 3rem) / 1.2 var(--f-impacto);
 }
