@@ -84,7 +84,7 @@ export const en: Dicionario = {
       },
     },
   },
-  coracao: { frase: 'Every fire starts with a spark.' },
+  coracao: { rotulo: 'Interlude', frase: 'Every fire starts with a spark.' },
   assista: {
     titulo: 'Watch',
     tituloEm: 'the video',

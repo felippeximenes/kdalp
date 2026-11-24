@@ -37,6 +37,7 @@ export function Coracao({ reduzido }: { reduzido: boolean }) {
 
   return (
     <section ref={secao} className={styles.coracao} id="coracao">
+      <p className="rotulo">{t.coracao.rotulo}</p>
       <svg ref={svg} className={styles.svg} viewBox="0 0 100 92" aria-hidden="true">
         <defs>
           <linearGradient id="coracao-fogo" x1="0" y1="1" x2="0" y2="0">

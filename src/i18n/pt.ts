@@ -18,7 +18,7 @@ export interface Dicionario {
     navRotulo: string;
     itens: Record<CapituloId, { titulo: string; texto: string; imagemAlt: string }>;
   };
-  coracao: { frase: string };
+  coracao: { rotulo: string; frase: string };
   assista: { titulo: string; tituloEm: string; botao: string; capaAlt: string };
   rodape: { projeto: string; clipeOficial: string; imagemAlt: string };
 }
@@ -105,7 +105,7 @@ export const pt: Dicionario = {
       },
     },
   },
-  coracao: { frase: 'Todo fogo começa com uma faísca.' },
+  coracao: { rotulo: 'Interlúdio', frase: 'Todo fogo começa com uma faísca.' },
   assista: {
     titulo: 'Assista',
     tituloEm: 'ao clipe',
