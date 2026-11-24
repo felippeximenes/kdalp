@@ -1,5 +1,6 @@
 .capitulos {
   position: relative;
+  padding-block: var(--e5);
 }
 
 .nav {
@@ -33,7 +34,7 @@
 }
 .nav a {
   display: block;
-  font: 600 0.7rem/1 var(--f-rotulo);
+  font: 800 0.7rem/1 var(--f-texto);
   letter-spacing: 0.1em;
   text-decoration: none;
   padding: 8px 10px 8px 14px;
@@ -45,38 +46,92 @@
   border-left: 3px solid #fff;
 }
 
-.cap {
-  min-height: 100vh;
+/* coluna central de cards grandes, um por fase */
+.pilha {
+  width: min(var(--coluna), 100% - 2 * var(--gutter));
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  align-items: center;
-  gap: var(--gap-secao);
-  padding: 14vh var(--gutter) 14vh calc(var(--gutter) + 72px);
+  gap: var(--e4);
+}
+@media (min-width: 900px) {
+  /* abre espaço para a barra lateral de capítulos */
+  .pilha {
+    width: min(var(--coluna), 100% - 2 * (var(--gutter) + 56px));
+  }
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: end;
+  min-height: min(620px, 80vh);
+  border-radius: var(--raio);
+  overflow: hidden;
+  scroll-margin-top: 12vh;
   background: var(--bg);
   color: var(--fg);
-}
-.cap h3 {
-  font-size: var(--titulo-secao);
-  font-style: italic;
-  margin: 0.6rem 0 1.5rem;
-}
-.texto p:last-child {
-  max-width: 38ch;
-  font-size: 1.125rem;
+  box-shadow: var(--glow);
 }
 .imagem {
-  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -2;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+}
+/* degradê na cor da fase, de baixo para cima */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 80%, transparent) 30%,
+    transparent 65%
+  );
+}
+
+.texto {
+  display: grid;
+  justify-items: start;
+  gap: var(--e1);
+  padding: var(--e3);
+  max-width: 40em;
+}
+.card h3 {
+  font-size: clamp(3rem, 7vw, 6rem);
+}
+.texto > p:not(:global(.rotulo)) {
+  max-width: 34ch;
+}
+.texto :global(.pilula) {
+  margin-top: var(--e1);
+  /* contraste garantido em toda fase, inclusive na rosa da coroação */
+  background: var(--fg);
+  color: var(--bg);
 }
 
 @media (max-width: 899px) {
   .nav {
     display: none;
   }
-  .cap {
-    grid-template-columns: 1fr;
-    padding-left: var(--gutter);
+  .card {
+    min-height: 560px;
+  }
+  .card::before {
+    background: linear-gradient(
+      to top,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 85%, transparent) 45%,
+      transparent 80%
+    );
+  }
+  .texto {
+    padding: var(--e2);
   }
 }
 

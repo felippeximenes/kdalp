@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { capitulos, type CapituloId } from '../data/capitulos';
+import { linkClipe, tempo } from '../data/personagens';
 import { ResponsiveImage } from './ResponsiveImage';
 import styles from './Capitulos.module.css';
 
@@ -38,7 +39,7 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
     () => {
       if (reduzido) return;
       gsap.utils.toArray<HTMLElement>('article').forEach((c) => {
-        gsap.from(c.children, {
+        gsap.from(c.querySelector(`.${styles.texto}`)?.children ?? [], {
           autoAlpha: 0,
           y: 60,
           duration: 1,
@@ -53,9 +54,6 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
 
   return (
     <section ref={secao} className={styles.capitulos} id="capitulos" aria-labelledby="cap-titulo">
-      <h2 className="sr-only" id="cap-titulo">
-        {t.capitulos.titulo}
-      </h2>
       <nav
         className={`${styles.nav} ${navVisivel ? styles.visivel : ''}`}
         aria-label={t.capitulos.navRotulo}
@@ -75,27 +73,42 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
         </ol>
       </nav>
 
-      {capitulos.map((c) => {
-        const txt = t.capitulos.itens[c.id];
-        const vars = { '--bg': c.bg, '--fg': c.fg } as CSSProperties;
-        return (
-          <article key={c.id} id={c.id} className={styles.cap} style={vars}>
-            <div className={styles.texto}>
-              <p className="rotulo">
-                {c.numeral} · {c.tempo}
-              </p>
-              <h3>{txt.titulo}</h3>
-              <p>{txt.texto}</p>
-            </div>
-            <ResponsiveImage
-              nome={c.imagem}
-              alt={txt.imagemAlt}
-              sizes="(min-width: 900px) 55vw, 100vw"
-              className={styles.imagem}
-            />
-          </article>
-        );
-      })}
+      <header className="cabecalho">
+        <p className="rotulo">{t.capitulos.rotulo}</p>
+        <h2 id="cap-titulo">{t.capitulos.titulo}</h2>
+      </header>
+
+      <div className={styles.pilha}>
+        {capitulos.map((c) => {
+          const txt = t.capitulos.itens[c.id];
+          const vars = { '--bg': c.bg, '--fg': c.fg } as CSSProperties;
+          return (
+            <article key={c.id} id={c.id} className={styles.card} style={vars}>
+              <ResponsiveImage
+                nome={c.imagem}
+                alt={txt.imagemAlt}
+                sizes="(min-width: 1100px) 1100px, 100vw"
+                className={styles.imagem}
+              />
+              <div className={styles.texto}>
+                <p className="rotulo">
+                  {t.capitulos.capitulo} {c.numeral} · {tempo(c.segundos)}
+                </p>
+                <h3>{txt.titulo}</h3>
+                <p>{txt.texto}</p>
+                <a
+                  className="pilula"
+                  href={linkClipe(c.segundos)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.verNoClipe}
+                </a>
+              </div>
+            </article>
+          );
+        })}
+      </div>
     </section>
   );
 }

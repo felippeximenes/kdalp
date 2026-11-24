@@ -4,6 +4,7 @@ import type { PersonagemId } from '../data/personagens';
 export interface Dicionario {
   htmlLang: string;
   idiomaRotulo: string;
+  verNoClipe: string;
   hero: { rotulo: string; titulo: string; tituloEm: string; subtitulo: string; dica: string };
   manifesto: { rotulo: string; titulo: string; texto: string; palavrasChave: string[] };
   quatro: {
@@ -14,8 +15,10 @@ export interface Dicionario {
     >;
   };
   capitulos: {
+    rotulo: string;
     titulo: string;
     navRotulo: string;
+    capitulo: string;
     itens: Record<CapituloId, { titulo: string; texto: string; imagemAlt: string }>;
   };
   coracao: { rotulo: string; frase: string };
@@ -26,6 +29,7 @@ export interface Dicionario {
 export const pt: Dicionario = {
   htmlLang: 'pt-BR',
   idiomaRotulo: 'Idioma',
+  verNoClipe: 'Ver no clipe',
   hero: {
     rotulo: 'Um projeto de fã · Firestarter',
     titulo: 'Do velório',
@@ -70,8 +74,10 @@ export const pt: Dicionario = {
     },
   },
   capitulos: {
-    titulo: 'A história em capítulos',
+    rotulo: 'A história',
+    titulo: 'Em cinco capítulos',
     navRotulo: 'Capítulos',
+    capitulo: 'Capítulo',
     itens: {
       velorio: {
         titulo: 'Velório',

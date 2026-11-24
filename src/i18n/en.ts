@@ -3,6 +3,7 @@ import type { Dicionario } from './pt';
 export const en: Dicionario = {
   htmlLang: 'en',
   idiomaRotulo: 'Language',
+  verNoClipe: 'See it in the video',
   hero: {
     rotulo: 'A fan project · Firestarter',
     titulo: 'From funeral',
@@ -49,8 +50,10 @@ export const en: Dicionario = {
     },
   },
   capitulos: {
-    titulo: 'The story in chapters',
+    rotulo: 'The story',
+    titulo: 'In five chapters',
     navRotulo: 'Chapters',
+    capitulo: 'Chapter',
     itens: {
       velorio: {
         titulo: 'Funeral',
