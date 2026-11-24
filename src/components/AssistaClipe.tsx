@@ -10,10 +10,11 @@ export function AssistaClipe() {
   const [carregado, setCarregado] = useState(false); // o YouTube só carrega no clique
 
   return (
-    <section className={styles.assista} id="assista">
-      <h2>
-        {t.assista.titulo} <em>{t.assista.tituloEm}</em>
-      </h2>
+    <section className={styles.assista} id="assista" aria-labelledby="assista-titulo">
+      <header className="cabecalho">
+        <p className="rotulo">{t.assista.rotulo}</p>
+        <h2 id="assista-titulo">{t.assista.titulo}</h2>
+      </header>
       <div className={styles.player}>
         {carregado ? (
           <iframe
@@ -24,13 +25,9 @@ export function AssistaClipe() {
           />
         ) : (
           <button type="button" className={styles.capa} onClick={() => setCarregado(true)}>
-            <ResponsiveImage
-              nome="capa-clipe"
-              alt={t.assista.capaAlt}
-              sizes="(min-width: 1100px) 1100px, 100vw"
-              className={styles.foto}
-            />
-            <span className={styles.botao}>
+            {/* 0:42.64: fumaça violeta e fagulhas; o frame das quatro já está no respiro acima */}
+            <ResponsiveImage nome="manifesto-fundo" alt="" sizes="100vw" className={styles.foto} />
+            <span className="pilula">
               <svg viewBox="0 0 100 92" aria-hidden="true">
                 <path d={CORACAO_PATH} />
               </svg>

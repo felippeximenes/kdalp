@@ -86,10 +86,9 @@ export const en: Dicionario = {
   },
   coracao: { rotulo: 'Interlude', frase: 'Every fire starts with a spark.' },
   assista: {
-    titulo: 'Watch',
-    tituloEm: 'the video',
+    rotulo: 'Watch',
+    titulo: 'The full video',
     botao: 'Watch the video',
-    capaAlt: 'The four walk out of a pink explosion, debris flying around them',
   },
   rodape: {
     projeto: 'A free, non-commercial fan project.',

@@ -19,7 +19,7 @@ export interface Dicionario {
     itens: Record<CapituloId, { titulo: string; texto: string; imagemAlt: string }>;
   };
   coracao: { rotulo: string; frase: string };
-  assista: { titulo: string; tituloEm: string; botao: string; capaAlt: string };
+  assista: { rotulo: string; titulo: string; botao: string };
   rodape: { projeto: string; clipeOficial: string; imagemAlt: string };
 }
 
@@ -107,10 +107,9 @@ export const pt: Dicionario = {
   },
   coracao: { rotulo: 'Interlúdio', frase: 'Todo fogo começa com uma faísca.' },
   assista: {
-    titulo: 'Assista',
-    tituloEm: 'ao clipe',
+    rotulo: 'Assista',
+    titulo: 'O clipe inteiro',
     botao: 'Assistir ao clipe',
-    capaAlt: 'As quatro saem caminhando de uma explosão rosa, com destroços no ar',
   },
   rodape: {
     projeto: 'Projeto de fã, gratuito e não comercial.',
