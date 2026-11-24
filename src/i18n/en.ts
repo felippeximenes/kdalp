@@ -12,6 +12,7 @@ export const en: Dicionario = {
   },
   manifesto: {
     rotulo: 'Manifesto',
+    titulo: 'The silence caught fire',
     texto:
       'They were laid to rest by candlelight, four coffins side by side. No one expected the silence to catch fire. They turned their own funeral into a show: chaos became rhythm, ashes became a crown, and a cold world was dyed red.',
     palavrasChave: ['fire', 'chaos', 'crown'],

@@ -5,7 +5,7 @@ export interface Dicionario {
   htmlLang: string;
   idiomaRotulo: string;
   hero: { rotulo: string; titulo: string; tituloEm: string; subtitulo: string; dica: string };
-  manifesto: { rotulo: string; texto: string; palavrasChave: string[] };
+  manifesto: { rotulo: string; titulo: string; texto: string; palavrasChave: string[] };
   quatro: {
     titulo: string;
     personagens: Record<
@@ -35,6 +35,7 @@ export const pt: Dicionario = {
   },
   manifesto: {
     rotulo: 'Manifesto',
+    titulo: 'O silêncio pegou fogo',
     texto:
       'Elas foram veladas à luz de vela, em quatro caixões lado a lado. Ninguém esperava que o silêncio pegasse fogo. Do próprio enterro fizeram um show: o caos virou ritmo, as cinzas viraram coroa, e o mundo frio foi tingido de vermelho.',
     palavrasChave: ['fogo', 'caos', 'coroa'],

@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { ResponsiveImage } from './ResponsiveImage';
 import styles from './Manifesto.module.css';
 
 const normalizar = (w: string) => w.toLowerCase().replace(/[^\p{L}]/gu, '');
@@ -35,8 +34,8 @@ export function Manifesto({ reduzido }: { reduzido: boolean }) {
 
   return (
     <section ref={secao} className={styles.manifesto} id="manifesto">
-      <ResponsiveImage nome="manifesto-fundo" alt="" sizes="100vw" className={styles.fundo} />
       <p className={`rotulo ${styles.rotulo}`}>{t.manifesto.rotulo}</p>
+      <h2>{t.manifesto.titulo}</h2>
       <p ref={texto} className={styles.texto}>
         {t.manifesto.texto.split(/\s+/).map((w, i) => (
           <span key={`${idioma}-${i}`}>
