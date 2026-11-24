@@ -1,25 +1,29 @@
-.trilho {
-  display: flex;
-  flex-direction: column;
+.quatro {
+  padding-top: var(--e5);
 }
 
+/* uma personagem por tela; o retrato fica parado enquanto a ficha rola */
 .ficha {
   min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-  align-items: center;
-  gap: var(--gap-secao);
-  padding: 12vh var(--gutter);
-  background: var(--bg);
+  align-items: start;
+  gap: var(--e4);
+  padding: var(--e5) var(--gutter);
+  background: linear-gradient(var(--noite), var(--bg) 18%, var(--bg) 82%, var(--noite));
   color: var(--fg);
 }
 
 .retrato {
+  position: sticky;
+  top: 12vh;
   aspect-ratio: 3 / 4;
-  /* limitar a largura (76vh × 3/4) preserva o 3:4; max-height quebraria a proporção */
+  /* limitar a largura (76vh × 3/4) preserva o 3:4 */
   width: min(100%, 57vh);
   justify-self: center;
   overflow: hidden;
+  border-radius: var(--raio);
+  box-shadow: var(--glow-forte);
   background: linear-gradient(170deg, var(--a1), var(--a2)); /* enquanto carrega */
 }
 .retrato img {
@@ -29,74 +33,58 @@
   object-fit: cover;
 }
 
-.info :global(.rotulo) {
+.info {
+  display: grid;
+  gap: var(--e2);
+  max-width: 34em;
+  padding-top: 6vh;
+}
+.info > :global(.rotulo) {
   color: var(--a2);
 }
 .info h3 {
   font-size: var(--titulo-secao);
-  font-style: italic;
-  margin: 0.6rem 0 1.5rem;
+  margin-top: calc(var(--e1) - var(--e2));
 }
 
-.tracos {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 2rem;
-}
-.tracos li {
-  font: 600 0.72rem/1 var(--f-rotulo);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 10px 14px;
-  border: 1px solid color-mix(in srgb, var(--a2) 60%, transparent);
-}
-
-.momentos {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 4px;
-}
-.momentos a {
-  display: flex;
-  gap: 14px;
-  align-items: baseline;
-  padding: 8px 0;
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
-}
-.momentos a :global(.rotulo) {
-  color: var(--a1);
-  min-width: 3.5em;
-}
-.momentos a:hover {
+.gancho {
+  font: 700 clamp(1.5rem, 2.4vw, 2rem) / 1.25 var(--f-texto);
+  letter-spacing: -0.015em;
   color: var(--a2);
+}
+
+.fala {
+  margin: var(--e1) 0;
+  color: var(--fg);
+}
+.fala p::before {
+  content: '“';
+  color: var(--a1);
+}
+.fala p::after {
+  content: '”';
+}
+
+.fechamento {
+  opacity: 0.75;
+}
+
+.info :global(.pilula) {
+  justify-self: start;
+  margin-top: var(--e1);
 }
 
 @media (max-width: 899px) {
   .ficha {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-top: 14vh;
   }
   .retrato {
+    position: static;
     /* 3:4 → largura de 45vh dá altura de 60vh */
     width: min(100%, 45vh);
   }
-}
-
-/* desktop com movimento: classe posta pelo componente */
-.horizontal {
-  overflow: hidden;
-}
-.horizontal .trilho {
-  flex-direction: row;
-  width: max-content;
-}
-.horizontal .ficha {
-  width: 100vw;
-  height: 100vh;
+  .info {
+    padding-top: 0;
+  }
 }
