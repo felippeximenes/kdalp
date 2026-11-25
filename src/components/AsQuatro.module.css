@@ -1,102 +1,137 @@
-.trilho {
-  display: flex;
-  flex-direction: column;
+.quatro {
+  padding-top: var(--e5);
 }
 
+/* cada personagem é uma cena de tela cheia: retrato sangrando de um lado, texto do outro */
 .ficha {
+  --lado: 22%; /* centro da luz, do lado do retrato */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   min-height: 100vh;
+  min-height: 100svh;
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: var(--gap-secao);
-  padding: 12vh var(--gutter);
-  background: var(--bg);
+  padding: var(--e5) var(--gutter);
+  /* derrete no fundo da página em cima e embaixo; no meio, a cor da personagem */
+  background: linear-gradient(var(--noite), transparent 14%, transparent 86%, var(--noite)),
+    radial-gradient(
+      ellipse 70% 90% at var(--lado) 50%,
+      color-mix(in srgb, var(--a1) 32%, var(--bg)),
+      var(--bg) 75%
+    );
   color: var(--fg);
+}
+.direita {
+  --lado: 78%;
 }
 
 .retrato {
-  aspect-ratio: 3 / 4;
-  /* limitar a largura (76vh × 3/4) preserva o 3:4; max-height quebraria a proporção */
-  width: min(100%, 57vh);
-  justify-self: center;
-  overflow: hidden;
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: -1;
+  width: 55%;
   background: linear-gradient(170deg, var(--a1), var(--a2)); /* enquanto carrega */
+  /* sem caixa: some no fundo para o lado do texto, em cima e embaixo */
+  mask-image: linear-gradient(to right, #000 45%, transparent 98%),
+    linear-gradient(transparent, #000 15%, #000 80%, transparent);
+  mask-composite: intersect;
+}
+.direita .retrato {
+  inset: 0 0 0 auto;
+  mask-image: linear-gradient(to left, #000 45%, transparent 98%),
+    linear-gradient(transparent, #000 15%, #000 80%, transparent);
 }
 .retrato img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 25%; /* rosto no terço superior */
 }
 
-.info :global(.rotulo) {
-  color: var(--a2);
-}
-.info h3 {
-  font-size: var(--titulo-secao);
-  font-style: italic;
-  margin: 0.6rem 0 1.5rem;
-}
-
-.tracos {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 2rem;
-}
-.tracos li {
-  font: 600 0.72rem/1 var(--f-rotulo);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 10px 14px;
-  border: 1px solid color-mix(in srgb, var(--a2) 60%, transparent);
-}
-
-.momentos {
-  list-style: none;
-  padding: 0;
+.info {
+  grid-column: 2;
   display: grid;
-  gap: 4px;
+  justify-items: start;
+  gap: var(--e2);
+  max-width: 36em;
 }
-.momentos a {
-  display: flex;
-  gap: 14px;
-  align-items: baseline;
-  padding: 8px 0;
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
+.direita .info {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end; /* o texto encosta no retrato, como na cena espelhada */
 }
-.momentos a :global(.rotulo) {
-  color: var(--a1);
-  min-width: 3.5em;
-}
-.momentos a:hover {
+.info > :global(.rotulo) {
   color: var(--a2);
+}
+
+/* nome gigante, invadindo o retrato */
+.info h3 {
+  font-size: clamp(5rem, 14vw, 15rem);
+  line-height: 0.8;
+  margin: calc(var(--e1) - var(--e2)) 0 0 -16vw;
+  text-shadow: 0 0 60px color-mix(in srgb, var(--a1) 70%, transparent);
+}
+.direita .info h3 {
+  justify-self: end;
+  margin: calc(var(--e1) - var(--e2)) -16vw 0 0;
+}
+
+.gancho {
+  font: 700 clamp(1.4rem, 2.2vw, 1.9rem) / 1.25 var(--f-texto);
+  letter-spacing: -0.015em;
+  color: var(--a2);
+}
+.bio {
+  max-width: 34em;
+  opacity: 0.85;
+}
+
+/* as duas falas são o destaque da cena */
+.fala {
+  font: italic 400 clamp(1.75rem, 2.9vw, 2.75rem) / 1.15 var(--f-impacto);
+  padding-left: var(--e2);
+  border-left: 2px solid var(--a1);
+}
+.fala p::before {
+  content: '“';
+}
+.fala p::after {
+  content: '”';
+}
+
+.info :global(.pilula) {
+  margin-top: var(--e1);
 }
 
 @media (max-width: 899px) {
   .ficha {
     grid-template-columns: 1fr;
-    min-height: auto;
-    padding-top: 14vh;
+    align-items: start;
+    padding-top: 0;
   }
-  .retrato {
-    /* 3:4 → largura de 45vh dá altura de 60vh */
-    width: min(100%, 45vh);
+  /* retrato sangra de borda a borda no topo e some no fundo embaixo */
+  .retrato,
+  .direita .retrato {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: 70svh;
+    margin-inline: calc(-1 * var(--gutter));
+    mask-image: linear-gradient(#000 60%, transparent);
   }
-}
-
-/* desktop com movimento: classe posta pelo componente */
-.horizontal {
-  overflow: hidden;
-}
-.horizontal .trilho {
-  flex-direction: row;
-  width: max-content;
-}
-.horizontal .ficha {
-  width: 100vw;
-  height: 100vh;
+  .info,
+  .direita .info {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .info h3,
+  .direita .info h3 {
+    order: -1; /* o nome sobe sobre o pé do retrato, acima do rótulo */
+    justify-self: start;
+    margin: -0.9em 0 0;
+    font-size: clamp(4.5rem, 22vw, 7rem);
+  }
 }

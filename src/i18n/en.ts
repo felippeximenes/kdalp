@@ -3,6 +3,7 @@ import type { Dicionario } from './pt';
 export const en: Dicionario = {
   htmlLang: 'en',
   idiomaRotulo: 'Language',
+  verNoClipe: 'See it in the video',
   hero: {
     rotulo: 'A fan project · Firestarter',
     titulo: 'From funeral',
@@ -12,51 +13,71 @@ export const en: Dicionario = {
   },
   manifesto: {
     rotulo: 'Manifesto',
+    titulo: 'The silence caught fire',
     texto:
       'They were laid to rest by candlelight, four coffins side by side. No one expected the silence to catch fire. They turned their own funeral into a show: chaos became rhythm, ashes became a crown, and a cold world was dyed red.',
     palavrasChave: ['fire', 'chaos', 'crown'],
   },
   quatro: {
+    rotulo: 'The cast',
     titulo: 'The four',
     personagens: {
       ahri: {
         papel: 'The firestarter',
-        tracos: ['Leader', 'Provocative', 'Keeper of the flame'],
-        momentos: ['Wings of fire', 'The transformation', 'Heart of fire'],
+        gancho: 'She woke up at her own funeral and decided the silence had gone on long enough.',
+        bio: 'She was the first to open her eyes. She leads without asking permission and turns any pile of ash into a stage.',
+        falas: [
+          'They buried me with flowers. I brought the match.',
+          "I didn't come to ask for room. I came to light up the whole place.",
+        ],
         retratoAlt:
           'Ahri in a frontal close-up, with a pink feline visor and whisker marks on her face',
       },
       evelynn: {
         papel: 'The dark diva',
-        tracos: ['Cold', 'Seductive', 'Star pose'],
-        momentos: ['Rings on the lens', 'Above the smoke', 'Purple glasses'],
+        gancho: 'She was never afraid of the dark: that is where she learned to shine.',
+        bio: 'She stepped out of the coffin as if stepping out of a limo: cold, calculating and impossible to ignore.',
+        falas: [
+          'Funeral or premiere? To me it was always the same night.',
+          'Whoever stares at me too long forgets to blink.',
+        ],
         retratoAlt:
           'Evelynn in close-up, with purple glasses and platinum hair, under violet light',
       },
       akali: {
         papel: 'The rebel',
-        tracos: ['Attitude', 'Fast rap', 'Street energy'],
-        momentos: ['Visor portrait', 'The bridge'],
+        gancho: 'She turned down eternal rest, because resting was never her thing.',
+        bio: 'She brought the street into the mausoleum. Where the others burn slowly, she goes off all at once.',
+        falas: [
+          "Funeral etiquette? Never read it. Don't plan to.",
+          'If the floor shook, I was the one who stepped first.',
+        ],
         retratoAlt: 'Akali in a fur hat and mirrored pink visor, pink strands of hair in the wind',
       },
       kaisa: {
         papel: 'The cosmic force',
-        tracos: ['Ethereal', 'Powerful', 'Otherworldly'],
-        momentos: ['Cosmic dance', 'Violet dunes', 'Hands on the lens'],
+        gancho: 'She came back from a place where light has no name yet.',
+        bio: 'She crossed the void and brought back a glow that comes from within. She holds the rhythm when everything threatens to come apart.',
+        falas: [
+          'I spent too long among the stars to be afraid of a coffin.',
+          "My glow doesn't need a match.",
+        ],
         retratoAlt: "Kai'Sa in close-up, with a pink visor and a choker of silver rings",
       },
     },
   },
   capitulos: {
-    titulo: 'The story in chapters',
+    rotulo: 'The story',
+    titulo: 'In five chapters',
     navRotulo: 'Chapters',
+    capitulo: 'Chapter',
     itens: {
       velorio: {
         titulo: 'Funeral',
         texto:
           'Four coffins atop the stairs, a sea of candles and a wreath of lilies. The silence before the fire.',
         imagemAlt:
-          'View from inside the coffin: the padded purple lining and, through the glass, red heels among the candles',
+          'Four standing coffins at the top of a stone staircase, surrounded by hundreds of lit candles and a wreath of lilies',
       },
       ignicao: {
         titulo: 'Ignition',
@@ -83,12 +104,11 @@ export const en: Dicionario = {
       },
     },
   },
-  coracao: { frase: 'Every fire starts with a spark.' },
+  coracao: { rotulo: 'Interlude', frase: 'Every fire starts with a spark.' },
   assista: {
-    titulo: 'Watch',
-    tituloEm: 'the video',
+    rotulo: 'Watch',
+    titulo: 'The full video',
     botao: 'Watch the video',
-    capaAlt: 'The four walk out of a pink explosion, debris flying around them',
   },
   rodape: {
     projeto: 'A free, non-commercial fan project.',

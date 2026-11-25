@@ -46,7 +46,7 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
           { autoAlpha: 1, y: 0, duration: 0.15 },
           0.75,
         )
-        .to(`.${styles.flash}`, { opacity: 1, duration: 0.1 }, 0.9)
+        .from(`.${styles.sombra}`, { opacity: 0, duration: 0.15 }, 0.75)
         .set({}, {}, 1);
 
       return limpar;
@@ -55,7 +55,7 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
   );
 
   return (
-    <section ref={secao} className={styles.hero} id="inicio">
+    <section ref={secao} className={`vinheta ${styles.hero}`} id="inicio">
       <video
         ref={video}
         className={styles.video}
@@ -65,9 +65,10 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
         preload="auto"
         aria-hidden="true"
       />
-      <div className={styles.flash} aria-hidden="true" />
+      <div className={styles.sombra} aria-hidden="true" />
       <p className={`rotulo ${styles.rotulo}`}>{t.hero.rotulo}</p>
       <div className={styles.titulo}>
+        <p className="rotulo">Firestarter</p>
         <h1>
           {t.hero.titulo} <em>{t.hero.tituloEm}</em>
         </h1>

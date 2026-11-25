@@ -1,14 +1,55 @@
+/* retrato vermelho do grupo em tela cheia, título enorme por cima e uma linha fina de créditos */
 .rodape {
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  align-content: end;
+  gap: var(--e3);
+  padding: var(--e4) var(--gutter) var(--e2);
   background: var(--vermelho-final);
   color: #fff1f4;
-  padding: 18vh var(--gutter) 6vh;
-  display: grid;
-  gap: 1.5rem;
+  font-size: 1rem;
+}
+.fundo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.negativo {
+  opacity: 0;
+}
+.rodape:hover .negativo {
+  opacity: 1;
+}
+/* derrete no fundo da página em cima e escurece embaixo, onde fica o texto */
+.rodape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    var(--noite),
+    transparent 25%,
+    transparent 45%,
+    rgba(20, 10, 18, 0.75) 85%
+  );
+}
+
+.titulo,
+.linha {
+  position: relative;
+  z-index: 2; /* acima da vinheta */
 }
 
 .titulo {
-  font: italic 400 clamp(3.5rem, 15vw, 14rem) / 0.95 var(--f-titulo);
-  letter-spacing: -0.01em;
+  font: 800 clamp(4.5rem, 19vw, 20rem) / 0.8 var(--f-display);
+  text-transform: uppercase;
+  text-shadow: var(--glow-titulo);
   justify-self: start;
   cursor: default;
 }
@@ -28,28 +69,18 @@
   }
 }
 
-.foto {
-  position: relative;
-  width: min(100%, 900px);
-}
-.foto img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.foto .negativo {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-.foto:hover .negativo {
-  opacity: 1;
-}
-
-.aviso {
+.linha {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--e1) var(--e3);
+  padding-top: var(--e1);
+  border-top: 1px solid rgba(255, 241, 244, 0.3);
   font-size: 0.8rem;
+}
+.aviso {
   max-width: 70ch;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 @media (prefers-reduced-motion: reduce) {

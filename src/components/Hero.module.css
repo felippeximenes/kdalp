@@ -13,12 +13,14 @@
   display: block;
 }
 
-.flash {
+/* escurece o último quadro de fogo atrás do título e derrete no fundo da página */
+.sombra {
   position: absolute;
   inset: 0;
-  background: var(--magenta);
-  opacity: 0;
   pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 52%, rgba(20, 10, 18, 0.82), transparent 75%),
+    linear-gradient(to top, var(--noite), rgba(20, 10, 18, 0.35) 45%, transparent 70%);
 }
 
 .rotulo,
@@ -46,17 +48,17 @@
   padding: 0 var(--gutter);
   color: #fff1f4;
   text-shadow:
-    0 2px 6px rgba(10, 6, 8, 0.55),
-    0 4px 60px rgba(10, 6, 8, 0.7);
-  background: radial-gradient(ellipse 45% 35% at 50% 50%, rgba(10, 6, 8, 0.45), transparent);
+    0 2px 6px rgba(20, 10, 18, 0.55),
+    var(--glow-titulo);
 }
 .titulo h1 {
-  font-size: clamp(3.5rem, 11vw, 10rem);
+  font-size: clamp(3.5rem, 12vw, 11rem);
+  margin-top: var(--e1);
 }
 .titulo h1 em {
   display: block;
 }
-.titulo p {
-  margin-top: 1.25rem;
+.titulo p:last-child {
+  margin-top: var(--e2);
   font-size: clamp(1rem, 1.6vw, 1.35rem);
 }
