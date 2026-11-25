@@ -1,27 +1,72 @@
+/* interlúdio escuro: só o coração de fogo acende a tela */
 .coracao {
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   place-content: center;
   justify-items: center;
   gap: var(--e3);
   padding: var(--e5) var(--gutter);
-  background: linear-gradient(180deg, #fde8f1, #e8f0ff);
-  color: var(--madeira);
+  background: radial-gradient(ellipse 45% 40% at 50% 48%, #3a0f24, var(--noite) 70%);
+  color: var(--marfim);
   text-align: center;
+}
+.coracao > :global(.rotulo) {
+  color: var(--magenta);
 }
 
 .svg {
-  width: min(52vw, 280px);
+  width: min(56vw, 300px);
   overflow: visible;
+  filter: drop-shadow(0 0 24px rgba(255, 122, 26, 0.6))
+    drop-shadow(0 0 70px rgba(224, 33, 138, 0.55));
 }
 .fogo {
   fill: url(#coracao-fogo);
-  opacity: 0;
 }
-.rosa {
-  fill: #f27bb0;
+/* núcleo desfocado atrás das chamas, como brasa */
+.brasa {
+  fill: #ff7a1a;
+  opacity: 0.55;
+  filter: blur(10px);
 }
 
 .frase {
   font: italic 400 clamp(1.75rem, 4vw, 3rem) / 1.2 var(--f-impacto);
+  text-shadow: var(--glow-titulo);
+}
+
+.fagulhas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.fagulhas span {
+  position: absolute;
+  bottom: -10px;
+  left: var(--x);
+  width: var(--tam);
+  height: var(--tam);
+  border-radius: 50%;
+  background: var(--ouro);
+  box-shadow:
+    0 0 8px var(--chama),
+    0 0 16px var(--magenta);
+  opacity: 0;
+  animation: subir var(--duracao) var(--atraso) ease-in infinite;
+}
+@keyframes subir {
+  0% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 30px -90vh;
+  }
 }

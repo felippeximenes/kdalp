@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, type CSSProperties } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -7,29 +7,32 @@ import styles from './Coracao.module.css';
 export const CORACAO_PATH =
   'M50 88C20 65 4 46 4 28 4 14 15 4 28 4c10 0 18 6 22 14 4-8 12-14 22-14 13 0 24 10 24 24 0 18-16 37-46 60z';
 
+// fagulhas subindo ao redor do coração: posições fixas, espalhadas sem padrão aparente
+const FAGULHAS = Array.from({ length: 16 }, (_, i) => ({
+  '--x': `${(i * 37) % 100}%`,
+  '--atraso': `${((i * 0.53) % 4).toFixed(2)}s`,
+  '--duracao': `${3 + (i % 4)}s`,
+  '--tam': `${3 + (i % 3) * 2}px`,
+})) as CSSProperties[];
+
 export function Coracao({ reduzido }: { reduzido: boolean }) {
   const { t } = useLanguage();
   const secao = useRef<HTMLElement>(null);
   const svg = useRef<SVGSVGElement>(null);
-  const fogo = useRef<SVGPathElement>(null);
-  const rosa = useRef<SVGPathElement>(null);
 
-  // coração de fogo vira coração rosa e flutua
+  // o coração acende e depois flutua
   useGSAP(
     () => {
-      if (reduzido) return; // estado final do CSS: coração rosa parado
-      gsap.set(fogo.current, { opacity: 1 });
-      gsap.set(rosa.current, { opacity: 0, scale: 0.8, transformOrigin: '50% 60%' });
+      if (reduzido) return;
       gsap
         .timeline({ scrollTrigger: { trigger: secao.current, start: 'top 55%' } })
-        .from(fogo.current, {
+        .from(svg.current, {
           scale: 0.4,
+          autoAlpha: 0,
           transformOrigin: '50% 80%',
-          duration: 0.8,
+          duration: 1,
           ease: 'back.out(2)',
         })
-        .to(fogo.current, { opacity: 0, scale: 1.15, duration: 0.6 }, '+=0.5')
-        .to(rosa.current, { opacity: 1, scale: 1, duration: 0.8, ease: 'elastic.out(1, 0.5)' }, '<')
         .to(svg.current, { y: -12, duration: 2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
     },
     { scope: secao, dependencies: [reduzido], revertOnUpdate: true },
@@ -37,17 +40,39 @@ export function Coracao({ reduzido }: { reduzido: boolean }) {
 
   return (
     <section ref={secao} className={styles.coracao} id="coracao">
+      {!reduzido && (
+        <div className={styles.fagulhas} aria-hidden="true">
+          {FAGULHAS.map((f, i) => (
+            <span key={i} style={f} />
+          ))}
+        </div>
+      )}
       <p className="rotulo">{t.coracao.rotulo}</p>
-      <svg ref={svg} className={styles.svg} viewBox="0 0 100 92" aria-hidden="true">
+      <svg ref={svg} className={styles.svg} viewBox="-10 -14 120 116" aria-hidden="true">
         <defs>
           <linearGradient id="coracao-fogo" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0" stopColor="#FFC94A" />
-            <stop offset=".5" stopColor="#FF7A1A" />
-            <stop offset="1" stopColor="#D7262E" />
+            <stop offset="0" stopColor="#FFF1C2" />
+            <stop offset=".3" stopColor="#FFC94A" />
+            <stop offset=".65" stopColor="#FF7A1A" />
+            <stop offset="1" stopColor="#E0218A" />
           </linearGradient>
+          {/* borda de chama: ruído deslocando o contorno, animado para tremular */}
+          <filter id="coracao-chama" x="-20%" y="-30%" width="140%" height="150%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.12 0.05" numOctaves="2" seed="3">
+              {!reduzido && (
+                <animate
+                  attributeName="baseFrequency"
+                  dur="1.6s"
+                  values="0.12 0.05;0.15 0.07;0.12 0.05"
+                  repeatCount="indefinite"
+                />
+              )}
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="11" />
+          </filter>
         </defs>
-        <path ref={fogo} className={styles.fogo} d={CORACAO_PATH} />
-        <path ref={rosa} className={styles.rosa} d={CORACAO_PATH} />
+        <path className={styles.brasa} d={CORACAO_PATH} />
+        <path className={styles.fogo} d={CORACAO_PATH} filter="url(#coracao-chama)" />
       </svg>
       <p className={styles.frase}>{t.coracao.frase}</p>
     </section>
