@@ -104,7 +104,7 @@ export const pt: Dicionario = {
         texto:
           'Quatro caixões no alto da escadaria, um mar de velas e uma coroa de lírios. O silêncio antes do fogo.',
         imagemAlt:
-          'Vista de dentro do caixão: o forro roxo acolchoado e, através do vidro, saltos vermelhos entre as velas',
+          'Quatro caixões em pé no alto de uma escadaria de pedra, cercados de centenas de velas acesas e uma coroa de lírios',
       },
       ignicao: {
         titulo: 'Ignição',

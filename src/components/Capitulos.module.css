@@ -1,6 +1,6 @@
 .capitulos {
   position: relative;
-  padding-block: var(--e5);
+  padding-top: var(--e5);
 }
 
 .nav {
@@ -46,28 +46,24 @@
   border-left: 3px solid #fff;
 }
 
-/* coluna central de cards grandes, um por fase */
+/* painéis de tela cheia; com movimento, ficam empilhados no mesmo lugar e fixados */
 .pilha {
-  width: min(var(--coluna), 100% - 2 * var(--gutter));
-  margin: 0 auto;
   display: grid;
-  gap: var(--e4);
 }
-@media (min-width: 900px) {
-  /* abre espaço para a barra lateral de capítulos */
-  .pilha {
-    width: min(var(--coluna), 100% - 2 * (var(--gutter) + 56px));
+@media (prefers-reduced-motion: no-preference) {
+  .painel {
+    grid-area: 1 / 1;
   }
 }
 
-.card {
+.painel {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
   display: grid;
   align-content: end;
-  min-height: min(620px, 80vh);
-  overflow: hidden;
-  scroll-margin-top: 12vh;
+  height: 100vh;
+  height: 100svh;
   background: var(--bg);
   color: var(--fg);
 }
@@ -79,29 +75,43 @@
   height: 100%;
   object-fit: cover;
 }
-/* degradê na cor da fase, de baixo para cima */
-.card::before {
+/* degradê na cor da fase, do canto inferior esquerdo, onde fica o texto */
+.painel::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(
-    to top,
-    var(--bg) 0%,
-    color-mix(in srgb, var(--bg) 80%, transparent) 30%,
-    transparent 65%
-  );
+      to top,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 70%, transparent) 25%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 0% 100%,
+      color-mix(in srgb, var(--bg) 70%, transparent),
+      transparent
+    );
 }
 
 .texto {
+  position: relative;
+  z-index: 2; /* acima da vinheta */
   display: grid;
   justify-items: start;
   gap: var(--e1);
-  padding: var(--e3);
-  max-width: 40em;
+  padding: var(--e4) var(--gutter);
+  max-width: 44em;
 }
-.card h3 {
-  font-size: clamp(3rem, 7vw, 6rem);
+@media (min-width: 900px) {
+  /* abre espaço para a barra lateral de capítulos */
+  .texto {
+    padding-left: calc(var(--gutter) + 56px);
+  }
+}
+.painel h3 {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  text-shadow: var(--glow-titulo);
 }
 .texto > p:not(:global(.rotulo)) {
   max-width: 34ch;
@@ -117,19 +127,16 @@
   .nav {
     display: none;
   }
-  .card {
-    min-height: 560px;
-  }
-  .card::before {
+  .painel::after {
     background: linear-gradient(
       to top,
       var(--bg) 0%,
-      color-mix(in srgb, var(--bg) 85%, transparent) 45%,
-      transparent 80%
+      color-mix(in srgb, var(--bg) 85%, transparent) 40%,
+      transparent 75%
     );
   }
   .texto {
-    padding: var(--e2);
+    padding: var(--e3) var(--gutter);
   }
 }
 

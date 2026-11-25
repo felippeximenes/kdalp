@@ -77,7 +77,7 @@ export const en: Dicionario = {
         texto:
           'Four coffins atop the stairs, a sea of candles and a wreath of lilies. The silence before the fire.',
         imagemAlt:
-          'View from inside the coffin: the padded purple lining and, through the glass, red heels among the candles',
+          'Four standing coffins at the top of a stone staircase, surrounded by hundreds of lit candles and a wreath of lilies',
       },
       ignicao: {
         titulo: 'Ignition',

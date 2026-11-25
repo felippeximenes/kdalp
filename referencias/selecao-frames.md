@@ -21,7 +21,7 @@ Recorte dos retratos: rosto no terço superior do quadro 3:4.
 
 | Slot | Timestamp | Motivo |
 |---|---|---|
-| cap1-velorio | provisório 0:24.5 (24.5 s) | POV de dentro do caixão. Gerar antes a folha de contato de 0:23.0 a 0:26.0 em referencias/frames-candidatos/cap1-velorio.jpg. |
+| cap1-velorio | 0:10 (10 s) | Mesmo quadro do início do hero (`assets/hero/frames-referencia/inicio.png`, 4K), com as letras da faixa da coroa removidas. Substitui o 0:24.5, que era borrado. |
 | cap2-ignicao | 1:11.25 (71.25 s) | Ahri no centro das asas de fogo. |
 | cap3-cosmos | 1:49.69 (109.69 s) | Kai'Sa em neon no cosmos, com as fitas de energia. |
 | cap4-coroacao | 2:27.28 (147.28 s) | As quatro sob confete, rostos nítidos. |
