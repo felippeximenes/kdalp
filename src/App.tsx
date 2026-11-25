@@ -32,8 +32,6 @@ export function App() {
         {/* 1:11.25: asas de fogo */}
         <Respiro nome="cap2-ignicao" />
         <AsQuatro reduzido={reduzido} />
-        {/* 1:33.65: as quatro saindo da explosão */}
-        <Respiro nome="capa-clipe" />
         <Capitulos reduzido={reduzido} />
         <Coracao reduzido={reduzido} />
         <AssistaClipe />

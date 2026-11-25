@@ -24,9 +24,13 @@ export function AssistaClipe() {
             allowFullScreen
           />
         ) : (
-          <button type="button" className={`vinheta ${styles.capa}`} onClick={() => setCarregado(true)}>
-            {/* 0:42.64: fumaça violeta e fagulhas; o frame das quatro já está no respiro acima */}
-            <ResponsiveImage nome="manifesto-fundo" alt="" sizes="100vw" className={styles.foto} />
+          <button
+            type="button"
+            className={`vinheta ${styles.capa}`}
+            onClick={() => setCarregado(true)}
+          >
+            {/* 1:33.65: as quatro saindo da explosão */}
+            <ResponsiveImage nome="capa-clipe" alt="" sizes="100vw" className={styles.foto} />
             <span className="pilula">
               <svg viewBox="0 0 100 92" aria-hidden="true">
                 <path d={CORACAO_PATH} />
