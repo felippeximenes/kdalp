@@ -25,47 +25,43 @@ export const en: Dicionario = {
       ahri: {
         papel: 'The firestarter',
         gancho: 'She woke up at her own funeral and decided the silence had gone on long enough.',
-        bio: 'She was the first to open her eyes. While the candles still flickered, she already knew the way out: tear through the marble, walk through the flames and call the others by name. She leads without asking permission and turns any pile of ash into a stage.',
+        bio: 'She was the first to open her eyes. She leads without asking permission and turns any pile of ash into a stage.',
         falas: [
           'They buried me with flowers. I brought the match.',
           "I didn't come to ask for room. I came to light up the whole place.",
         ],
-        fechamento: 'Behind her, someone was already smiling in the dark.',
         retratoAlt:
           'Ahri in a frontal close-up, with a pink feline visor and whisker marks on her face',
       },
       evelynn: {
         papel: 'The dark diva',
         gancho: 'She was never afraid of the dark: that is where she learned to shine.',
-        bio: 'She stepped out of the coffin as if stepping out of a limo. Cold, calculating and impossible to ignore, she turns every glance into an audience and every shadow into a costume. When the smoke rises, it is because she wants to be seen from above.',
+        bio: 'She stepped out of the coffin as if stepping out of a limo: cold, calculating and impossible to ignore.',
         falas: [
           'Funeral or premiere? To me it was always the same night.',
           'Whoever stares at me too long forgets to blink.',
         ],
-        fechamento: 'But every diva needs someone to wreck the script.',
         retratoAlt:
           'Evelynn in close-up, with purple glasses and platinum hair, under violet light',
       },
       akali: {
         papel: 'The rebel',
         gancho: 'She turned down eternal rest, because resting was never her thing.',
-        bio: 'Quick with words and quicker on her feet, she brought the street into the mausoleum. She does not follow choreography: she makes up her own and dares anyone to keep up. Where the others burn slowly, she goes off all at once.',
+        bio: 'She brought the street into the mausoleum. Where the others burn slowly, she goes off all at once.',
         falas: [
           "Funeral etiquette? Never read it. Don't plan to.",
           'If the floor shook, I was the one who stepped first.',
         ],
-        fechamento: 'By the time the dust settled, the sky had changed color.',
         retratoAlt: 'Akali in a fur hat and mirrored pink visor, pink strands of hair in the wind',
       },
       kaisa: {
         papel: 'The cosmic force',
         gancho: 'She came back from a place where light has no name yet.',
-        bio: 'While the others set the ground on fire, she crossed the void and brought back a glow that comes from within. Ethereal, precise and almost silent, she is the one who holds the rhythm when everything seems about to come apart.',
+        bio: 'She crossed the void and brought back a glow that comes from within. She holds the rhythm when everything threatens to come apart.',
         falas: [
           'I spent too long among the stars to be afraid of a coffin.',
           "My glow doesn't need a match.",
         ],
-        fechamento: 'Together, the four no longer fit in any grave.',
         retratoAlt: "Kai'Sa in close-up, with a pink visor and a choker of silver rings",
       },
     },

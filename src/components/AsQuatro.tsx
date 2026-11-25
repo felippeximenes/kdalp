@@ -42,13 +42,17 @@ export function AsQuatro({ reduzido }: { reduzido: boolean }) {
           '--fg': p.cores.fg,
         } as CSSProperties;
         return (
-          <article key={p.id} className={styles.ficha} style={cores}>
+          <article
+            key={p.id}
+            className={`${styles.ficha} ${i % 2 ? styles.direita : ''}`}
+            style={cores}
+          >
             <div className={styles.retrato}>
               <ResponsiveImage
                 nome={`retrato-${p.id}`}
                 formato="retrato"
                 alt={txt.retratoAlt}
-                sizes="(min-width: 900px) 40vw, 90vw"
+                sizes="(min-width: 900px) 55vw, 100vw"
               />
             </div>
             <div className={styles.info}>
@@ -57,13 +61,12 @@ export function AsQuatro({ reduzido }: { reduzido: boolean }) {
               </p>
               <h3>{p.nome}</h3>
               <p className={styles.gancho}>{txt.gancho}</p>
-              <p>{txt.bio}</p>
+              <p className={styles.bio}>{txt.bio}</p>
               {txt.falas.map((f) => (
-                <blockquote key={f} className={`impacto ${styles.fala}`}>
+                <blockquote key={f} className={styles.fala}>
                   <p>{f}</p>
                 </blockquote>
               ))}
-              <p className={styles.fechamento}>{txt.fechamento}</p>
               <a
                 className="pilula"
                 href={linkClipe(p.momento)}
