@@ -22,8 +22,6 @@
   width: min(100%, 57vh);
   justify-self: center;
   overflow: hidden;
-  border-radius: var(--raio);
-  box-shadow: var(--glow-forte);
   background: linear-gradient(170deg, var(--a1), var(--a2)); /* enquanto carrega */
 }
 .retrato img {

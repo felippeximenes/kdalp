@@ -55,7 +55,7 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
   );
 
   return (
-    <section ref={secao} className={styles.hero} id="inicio">
+    <section ref={secao} className={`vinheta ${styles.hero}`} id="inicio">
       <video
         ref={video}
         className={styles.video}

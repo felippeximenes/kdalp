@@ -18,6 +18,8 @@
   /* sombra com brilho magenta em vez de preto */
   --glow: 0 2px 50px rgba(224, 33, 138, 0.22);
   --glow-forte: 0 4px 90px rgba(224, 33, 138, 0.35);
+  /* brilho magenta atrás das letras dos títulos */
+  --glow-titulo: 0 0 40px rgba(224, 33, 138, 0.45), 0 0 120px rgba(224, 33, 138, 0.3);
 
   /* fontes: display condensada nos títulos, Bodoni itálica só em impacto e citações */
   --f-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
@@ -33,6 +35,5 @@
 
   --gutter: clamp(16px, 4vw, 64px);
   --coluna: 1100px;
-  --raio: 24px;
   --titulo-secao: clamp(3.5rem, 9vw, 8.5rem);
 }

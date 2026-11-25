@@ -66,12 +66,10 @@
   display: grid;
   align-content: end;
   min-height: min(620px, 80vh);
-  border-radius: var(--raio);
   overflow: hidden;
   scroll-margin-top: 12vh;
   background: var(--bg);
   color: var(--fg);
-  box-shadow: var(--glow);
 }
 .imagem {
   position: absolute;
