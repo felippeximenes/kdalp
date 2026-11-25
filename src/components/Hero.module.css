@@ -13,12 +13,14 @@
   display: block;
 }
 
-.flash {
+/* escurece o último quadro de fogo atrás do título e derrete no fundo da página */
+.sombra {
   position: absolute;
   inset: 0;
-  background: var(--magenta);
-  opacity: 0;
   pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 52%, rgba(20, 10, 18, 0.82), transparent 75%),
+    linear-gradient(to top, var(--noite), rgba(20, 10, 18, 0.35) 45%, transparent 70%);
 }
 
 .rotulo,
@@ -47,8 +49,7 @@
   color: #fff1f4;
   text-shadow:
     0 2px 6px rgba(20, 10, 18, 0.55),
-    0 4px 60px rgba(224, 33, 138, 0.35);
-  background: radial-gradient(ellipse 45% 35% at 50% 50%, rgba(20, 10, 18, 0.45), transparent);
+    var(--glow-titulo);
 }
 .titulo h1 {
   font-size: clamp(3.5rem, 12vw, 11rem);
