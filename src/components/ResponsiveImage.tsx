@@ -6,7 +6,7 @@ const arquivos = import.meta.glob<string>('../assets/images/*.{avif,webp}', {
 });
 
 const FORMATOS = {
-  retrato: { larguras: [480, 960, 1050], altura: 1400 }, // 3:4; 1050 = recorte nativo do 4K
+  retrato: { larguras: [480, 960, 1200], altura: 1600 }, // 3:4; altura inteira do 4K (1224×1632), sem ampliar
   paisagem: { larguras: [640, 1280, 1920], altura: 1080 }, // 16:9
 };
 

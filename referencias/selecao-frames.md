@@ -15,7 +15,7 @@
 
 A confirmar: o close de 1:38.0–1:38.3 (cabelo preto com mechas vermelhas, visor arredondado). Se for a Evelynn, trocar o retrato dela por 1:38.09 (98.09 s). Até lá, vale o 0:56.12.
 Alternativas: Kai'Sa sem visor em 1:41.57 (101.57 s); Kai'Sa neon em 1:45.42 (105.42 s).
-Recorte dos retratos: rosto no terço superior do quadro 3:4.
+Recorte dos retratos: altura inteira do quadro, centrado no rosto (x = 1268 na Akali, 1308 nas outras).
 
 ## Capítulos (16:9)
 
@@ -39,5 +39,5 @@ Recorte dos retratos: rosto no terço superior do quadro 3:4.
 ## Formato de saída
 
 - O clipe é mais largo que 16:9 (3840×1632). Nos capítulos e extras, recortar 16:9 do centro, ou do ponto de interesse quando ele não estiver no centro.
-- AVIF + WebP. Capítulos e extras: 640, 1280 e 1920 px de largura. Retratos: 480, 960 e 1050 px de largura (1050 é a largura nativa do recorte 3:4 com o rosto no terço superior; sem ampliação).
+- AVIF + WebP. Capítulos e extras: 640, 1280 e 1920 px de largura. Retratos: 480, 960 e 1200 px de largura (recorte 3:4 com a altura inteira do 4K, 1224×1632, para não cortar o topo da cabeça; 1200×1600 no maior, sem ampliação).
 - Meta: ~150 KB no tamanho maior.

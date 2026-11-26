@@ -6,6 +6,8 @@ export interface Personagem {
   cores: { bg: string; a1: string; a2: string; fg: string };
   /** segundos no clipe: o momento do botão "Ver no clipe" */
   momento: number;
+  /** object-position vertical do retrato (o topo da cabeça encosta no quadro em algumas) */
+  foco?: string;
 }
 
 export const CLIPE_ID = 'Mmw-PpWhKFg';
@@ -20,6 +22,7 @@ export const personagens: Personagem[] = [
     nome: 'Ahri',
     cores: { bg: '#14070A', a1: '#B3122E', a2: '#FFC94A', fg: '#E8DCC8' },
     momento: 71,
+    foco: '0%', // orelhas encostam no topo do quadro
   },
   {
     id: 'evelynn',

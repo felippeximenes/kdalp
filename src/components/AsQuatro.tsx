@@ -41,6 +41,7 @@ export function AsQuatro({ reduzido }: { reduzido: boolean }) {
           '--a1': p.cores.a1,
           '--a2': p.cores.a2,
           '--fg': p.cores.fg,
+          '--foco': p.foco,
         } as CSSProperties;
         return (
           <article
