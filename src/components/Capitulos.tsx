@@ -19,17 +19,18 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
   const [ativo, setAtivo] = useState<CapituloId | null>(null);
   const [navVisivel, setNavVisivel] = useState(false);
 
-  // barra lateral: só aparece dentro da seção
+  // movimento reduzido: barra lateral aparece enquanto a seção cruza o meio da tela
+  // (com movimento, segue o pin dos painéis: ver onToggle abaixo)
   useEffect(() => {
     const s = secao.current;
-    if (!s) return;
+    if (!reduzido || !s) return;
     const obs = new IntersectionObserver(
       ([e]) => setNavVisivel(e?.isIntersecting ?? false),
       MEIO_DA_TELA,
     );
     obs.observe(s);
     return () => obs.disconnect();
-  }, []);
+  }, [reduzido]);
 
   // movimento reduzido: painéis em fluxo, o ativo é o que está no meio da tela
   useEffect(() => {
@@ -56,6 +57,7 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
           end: `+=${ULTIMO * 100}%`,
           pin: true,
           scrub: true,
+          onToggle: (s) => setNavVisivel(s.isActive),
           onUpdate: (s) => setAtivo(capitulos[Math.round(s.progress * ULTIMO)]?.id ?? null),
         },
       });
@@ -87,6 +89,7 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
       tl.set({}, {}, ULTIMO);
       return () => {
         gatilho.current = null;
+        setNavVisivel(false);
       };
     },
     { scope: secao, dependencies: [reduzido], revertOnUpdate: true },
