@@ -15,7 +15,7 @@ export function AssistaClipe() {
         <p className="rotulo">{t.assista.rotulo}</p>
         <h2 id="assista-titulo">{t.assista.titulo}</h2>
       </header>
-      <div className={styles.player}>
+      <div className={styles.player} data-revelar>
         {carregado ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${CLIPE_ID}?autoplay=1`}

@@ -64,8 +64,9 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
       gatilho.current = tl.scrollTrigger ?? null;
       if (paineis[0])
         gsap.from(texto(paineis[0]), {
-          autoAlpha: 0,
+          clipPath: 'inset(100% 0% 0% 0%)',
           y: 60,
+          clearProps: 'clipPath',
           duration: 1,
           stagger: 0.12,
           ease: 'power3.out',
