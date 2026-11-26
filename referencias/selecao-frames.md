@@ -33,7 +33,7 @@ Recorte dos retratos: altura inteira do quadro, centrado no rosto (x = 1268 na A
 |---|---|---|
 | rodape-negativo | 3:08.94 (188.94 s) | Mesmo retrato em negativo azul e rosa, para o hover do rodapé. |
 | capa-clipe | 1:33.65 (93.65 s) | As quatro saindo da explosão rosa. Capa do embed. |
-| manifesto-fundo | 0:42.64 (42.64 s) | Fumaça violeta e fagulhas. Usar escurecido atrás do texto. |
+| ~~manifesto-fundo~~ | 0:42.64 (42.64 s) | Removido (sem uso desde que o manifesto virou bloco de texto). |
 | ignicao-olhos (opcional) | 1:11.75 (71.75 s) | Close dos olhos da Ahri. Detalhe dentro do capítulo II. |
 
 ## Formato de saída
