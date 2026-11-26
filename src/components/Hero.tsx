@@ -4,6 +4,9 @@ import { useGSAP } from '@gsap/react';
 import { useLanguage } from '../i18n/LanguageContext';
 import styles from './Hero.module.css';
 
+// o vídeo chega ao último quadro (as asas de fogo) aqui; o resto do pin é o título sobre ele
+const FIM_DO_VIDEO = 0.85;
+
 export function Hero({ reduzido }: { reduzido: boolean }) {
   const { t } = useLanguage();
   const secao = useRef<HTMLElement>(null);
@@ -13,23 +16,23 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
     () => {
       const v = video.current;
       if (!v) return;
-      let progresso = reduzido ? 0.5 : 0; // movimento reduzido: quadro fixo já em chamas
+      let progresso = reduzido ? 1 : 0; // movimento reduzido: quadro fixo, o último de fogo
       const irPara = () => {
-        if (v.duration) v.currentTime = progresso * (v.duration - 0.05);
+        if (v.duration) v.currentTime = Math.min(progresso / FIM_DO_VIDEO, 1) * (v.duration - 0.05);
       };
       v.addEventListener('loadedmetadata', irPara);
       irPara();
       const limpar = () => v.removeEventListener('loadedmetadata', irPara);
       if (reduzido) return limpar;
 
-      // 400vh fixado, scroll = tempo do vídeo
+      // 450vh fixado, scroll = tempo do vídeo até FIM_DO_VIDEO; depois, o título
       gsap
         .timeline({
           defaults: { ease: 'none' },
           scrollTrigger: {
             trigger: secao.current,
             start: 'top top',
-            end: '+=400%',
+            end: '+=450%',
             pin: true,
             scrub: true,
             onUpdate: (s) => {
@@ -43,10 +46,10 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
         .fromTo(
           `.${styles.titulo}`,
           { autoAlpha: 0, y: 40 },
-          { autoAlpha: 1, y: 0, duration: 0.15 },
-          0.75,
+          { autoAlpha: 1, y: 0, duration: 0.1 },
+          FIM_DO_VIDEO + 0.02,
         )
-        .from(`.${styles.sombra}`, { opacity: 0, duration: 0.15 }, 0.75)
+        .from(`.${styles.sombra}`, { opacity: 0, duration: 0.1 }, FIM_DO_VIDEO)
         .set({}, {}, 1);
 
       return limpar;
@@ -68,7 +71,6 @@ export function Hero({ reduzido }: { reduzido: boolean }) {
       <div className={styles.sombra} aria-hidden="true" />
       <p className={`rotulo ${styles.rotulo}`}>{t.hero.rotulo}</p>
       <div className={styles.titulo}>
-        <p className="rotulo">Firestarter</p>
         <h1>
           {t.hero.titulo} <em>{t.hero.tituloEm}</em>
         </h1>
