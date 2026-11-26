@@ -56,19 +56,49 @@ export function Coracao({ reduzido }: { reduzido: boolean }) {
             <stop offset=".65" stopColor="#FF7A1A" />
             <stop offset="1" stopColor="#E0218A" />
           </linearGradient>
-          {/* borda de chama: ruído deslocando o contorno, animado para tremular */}
-          <filter id="coracao-chama" x="-20%" y="-30%" width="140%" height="150%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.12 0.05" numOctaves="2" seed="3">
+          {/* borda de chama: ruído largo deslocando o contorno, animado para tremular.
+              O deslocamento sai serrilhado; o desfoque leve depois dele alisa a borda,
+              e um desfoque largo da mesma chama vira o halo */}
+          <filter
+            id="coracao-chama"
+            x="-30%"
+            y="-40%"
+            width="160%"
+            height="180%"
+            colorInterpolationFilters="sRGB"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.028 0.055"
+              numOctaves="3"
+              seed="3"
+              result="ruido"
+            >
               {!reduzido && (
                 <animate
                   attributeName="baseFrequency"
-                  dur="1.6s"
-                  values="0.12 0.05;0.15 0.07;0.12 0.05"
+                  dur="2.4s"
+                  values="0.028 0.055;0.034 0.068;0.028 0.055"
+                  calcMode="spline"
+                  keySplines=".45 0 .55 1;.45 0 .55 1"
                   repeatCount="indefinite"
                 />
               )}
             </feTurbulence>
-            <feDisplacementMap in="SourceGraphic" scale="11" />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="ruido"
+              scale="10"
+              xChannelSelector="R"
+              yChannelSelector="G"
+              result="chama"
+            />
+            <feGaussianBlur in="chama" stdDeviation="1.1" result="borda" />
+            <feGaussianBlur in="chama" stdDeviation="7" result="halo" />
+            <feMerge>
+              <feMergeNode in="halo" />
+              <feMergeNode in="borda" />
+            </feMerge>
           </filter>
         </defs>
         <path className={styles.brasa} d={CORACAO_PATH} />
