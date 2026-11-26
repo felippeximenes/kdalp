@@ -53,6 +53,12 @@
 @media (prefers-reduced-motion: no-preference) {
   .painel {
     grid-area: 1 / 1;
+    /* máscara 20% mais alta que o painel: os primeiros 20% da tela são a borda em degradê.
+       --mascara (em svh) vai de 100 (abaixo do painel, oculto) a -20 (painel inteiro) */
+    mask-image: linear-gradient(transparent, #000 16.667%);
+    mask-size: 100% 120%;
+    mask-repeat: no-repeat;
+    mask-position: 0 calc(var(--mascara, -20) * 1svh);
   }
 }
 

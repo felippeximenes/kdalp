@@ -70,10 +70,11 @@ export function Capitulos({ reduzido }: { reduzido: boolean }) {
           scrollTrigger: { trigger: pilha.current, start: 'top 65%' },
         });
       paineis.slice(1).forEach((p, i) => {
+        // a máscara sobe com a borda em degradê (ver .painel no CSS) e o painel acende junto
         tl.fromTo(
           p,
-          { clipPath: 'inset(100% 0% 0% 0%)' },
-          { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.8 },
+          { '--mascara': 100, opacity: 0 },
+          { '--mascara': -20, opacity: 1, duration: 0.8 },
           i + 0.1,
         )
           .from(p.querySelector('img'), { scale: 1.2, duration: 0.8 }, i + 0.1)
