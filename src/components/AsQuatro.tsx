@@ -10,16 +10,17 @@ export function AsQuatro({ reduzido }: { reduzido: boolean }) {
   const { t } = useLanguage();
   const secao = useRef<HTMLElement>(null);
 
-  // rack focus: o retrato entra desfocado e ganha nitidez
+  // rack focus: o retrato entra desfocado e já está nítido antes de chegar ao meio da tela
+  // (antes ia até 35%: no celular, o retrato de 70svh passava quase todo desfocado)
   useGSAP(
     () => {
       if (reduzido) return;
       gsap.utils.toArray<HTMLElement>(`.${styles.retrato}`).forEach((r) =>
         gsap.from(r, {
-          filter: 'blur(18px)',
+          filter: 'blur(10px)',
           scale: 1.06,
           ease: 'none',
-          scrollTrigger: { trigger: r, start: 'top 90%', end: 'top 35%', scrub: true },
+          scrollTrigger: { trigger: r, start: 'top bottom', end: 'top 65%', scrub: true },
         }),
       );
     },
@@ -53,6 +54,7 @@ export function AsQuatro({ reduzido }: { reduzido: boolean }) {
                 formato="retrato"
                 alt={txt.retratoAlt}
                 sizes="(min-width: 900px) 55vw, 100vw"
+                loading="eager"
               />
             </div>
             <div className={styles.info}>

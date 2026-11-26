@@ -16,9 +16,18 @@ interface Props {
   sizes: string;
   formato?: keyof typeof FORMATOS;
   className?: string;
+  /** 'eager' quando a imagem não pode faltar ao entrar na tela */
+  loading?: 'lazy' | 'eager';
 }
 
-export function ResponsiveImage({ nome, alt, sizes, formato = 'paisagem', className }: Props) {
+export function ResponsiveImage({
+  nome,
+  alt,
+  sizes,
+  formato = 'paisagem',
+  className,
+  loading = 'lazy',
+}: Props) {
   const { larguras, altura } = FORMATOS[formato];
   const srcset = (ext: string) =>
     larguras
@@ -41,7 +50,7 @@ export function ResponsiveImage({ nome, alt, sizes, formato = 'paisagem', classN
         alt={alt}
         width={maior}
         height={altura}
-        loading="lazy"
+        loading={loading}
         decoding="async"
       />
     </picture>
