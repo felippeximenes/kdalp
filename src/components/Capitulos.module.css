@@ -133,16 +133,19 @@
   .nav {
     display: none;
   }
+  /* no celular o texto ocupa metade da tela: fundo quase sólido atrás dele */
   .painel::after {
     background: linear-gradient(
       to top,
       var(--bg) 0%,
-      color-mix(in srgb, var(--bg) 85%, transparent) 40%,
-      transparent 75%
+      var(--bg) 30%,
+      color-mix(in srgb, var(--bg) 88%, transparent) 50%,
+      transparent 80%
     );
   }
   .texto {
     padding: var(--e3) var(--gutter);
+    text-shadow: 0 1px 12px var(--bg);
   }
 }
 
