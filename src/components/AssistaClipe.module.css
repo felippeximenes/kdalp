@@ -29,6 +29,10 @@
   isolation: isolate;
   background: var(--fumaca);
 }
+/* o <picture> também é item do grid: sem isto, empurra o play para uma segunda linha */
+.capa > * {
+  grid-area: 1 / 1;
+}
 .foto {
   position: absolute;
   inset: 0;
@@ -37,13 +41,20 @@
   height: 100%;
   object-fit: cover;
 }
-/* derrete no fundo em cima e embaixo */
+/* derrete no fundo em cima e embaixo; o centro escurece para o play aparecer sobre a explosão clara */
 .capa::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(var(--noite), transparent 30%, transparent 70%, var(--noite));
+  background:
+    radial-gradient(
+      ellipse min(560px, 80vw) min(320px, 34svh) at 50% 50%,
+      rgba(20, 10, 18, 0.8),
+      rgba(20, 10, 18, 0.4) 55%,
+      transparent
+    ),
+    linear-gradient(var(--noite), transparent 30%, transparent 70%, var(--noite));
 }
 
 .capa :global(.pilula) {
